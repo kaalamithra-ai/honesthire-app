@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Env / secrets - never push real secrets
+backend/.env
+.env
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+backend/*.log
+backend/*.err.log
+
+# Databases / local data
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+backend/prisma/*.db
+backend/prisma/*.db-*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# Temp / local tooling
+.kilo/
+tmp-ids.js

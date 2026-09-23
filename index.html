@@ -1,0 +1,839 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><title>Honest Hire</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23316bf3%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EH%3C/text%3E%3C/svg%3E"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#b4c5ff", "on-secondary-fixed-variant": "#003ea8", "on-primary-container": "#8590a6", "on-primary-fixed": "#111c2d", "primary": "#091426", "secondary-container": "#316bf3", "surface-container-high": "#dce9ff", "primary-container": "#1e293b", "surface-container-lowest": "#ffffff", "surface-container": "#e5eeff", "inverse-primary": "#bcc7de", "outline-variant": "#c5c6cd", "on-secondary-container": "#fefcff", "surface-tint": "#545f73", "on-primary": "#ffffff", "on-secondary-fixed": "#00174b", "on-error": "#ffffff", "surface-bright": "#f8f9ff", "surface-dim": "#cbdbf5", "surface-container-low": "#eff4ff", "primary-fixed": "#d8e3fb", "secondary-fixed": "#dbe1ff", "on-error-container": "#93000a", "inverse-on-surface": "#eaf1ff", "on-tertiary-fixed-variant": "#005236", "on-primary-fixed-variant": "#3c475a", "inverse-surface": "#213145", "primary-fixed-dim": "#bcc7de", "surface": "#f8f9ff", "surface-variant": "#d3e4fe", "on-surface-variant": "#45474c", "on-secondary": "#ffffff", "on-tertiary-fixed": "#002113", "secondary": "#0051d5", "on-tertiary-container": "#00a472", "tertiary-container": "#00301e", "on-surface": "#0b1c30", "error-container": "#ffdad6", "tertiary": "#00190e", "on-background": "#0b1c30", "error": "#ba1a1a", "surface-container-highest": "#d3e4fe", "tertiary-fixed": "#6ffbbe", "tertiary-fixed-dim": "#4edea3", "outline": "#75777d", "background": "#f8f9ff", "on-tertiary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "2rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "space-md": "1rem" }, "fontFamily": { "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "data-metric": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "label-md": ["Inter"], "body-sm": ["Inter"], "display": ["Plus Jakarta Sans"], "body-lg": ["Inter"] }, "fontSize": { "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "data-metric": ["1.5rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-md": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0.005em", "fontWeight": "400" }], "display": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}.tab-panel{display:none;}.tab-panel.is-visible{display:flex;animation:hhFade .28s ease both;}@keyframes hhFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}#app-nav a[data-tab]{position:relative;}#app-nav a[data-tab].tab-active{color:#0051d5!important;font-weight:600;}#app-nav a[data-tab].tab-active .material-symbols-outlined{font-variation-settings:'FILL' 1,'wght' 600;}#app-nav a[data-tab] .tab-indicator{position:absolute;top:0;left:50%;transform:translateX(-50%) scaleX(0);width:24px;height:3px;border-radius:9999px;background:#316bf3;transition:transform .25s ease;}#app-nav a[data-tab].tab-active .tab-indicator{transform:translateX(-50%) scaleX(1);}.chip-filter{transition:all .18s ease;}.chip-filter[aria-pressed="true"]{background:#091426!important;color:#fff!important;border-color:#091426!important;}.chip-filter[aria-pressed="true"] .material-symbols-outlined{color:#fff!important;}.check-section.is-hidden{display:none!important;}.check-section.is-collapsed .collapsible-body{display:none!important;}.check-section .collapse-chevron{transition:transform .2s ease;}.check-section.is-collapsed .collapse-chevron{transform:rotate(-90deg);}.live-dot{position:relative;}.live-dot::after{content:'';position:absolute;inset:-4px;border-radius:9999px;border:2px solid #00a472;opacity:.55;animation:hhPing 1.8s ease-out infinite;}@keyframes hhPing{0%{transform:scale(.6);opacity:.7;}80%,100%{transform:scale(1.25);opacity:0;}}.iv-grid{display:flex;gap:1rem;align-items:flex-start;}.iv-list-col{flex:0 0 330px;max-width:330px;min-width:0;}.iv-detail-col{flex:1 1 auto;min-width:0;}@media (max-width:860px){.iv-grid{flex-direction:column;}.iv-list-col{flex:none;max-width:none;width:100%;}}.iv-cand{transition:all .18s ease;text-align:left;width:100%;cursor:pointer;}.iv-cand[aria-selected="true"]{background:#e5eeff!important;outline:2px solid #316bf3;outline-offset:-2px;}.iv-ltab{transition:all .18s ease;}.iv-ltab[aria-pressed="true"]{background:#091426!important;color:#fff!important;}.iv-thread{max-height:300px;overflow-y:auto;}.msg{max-width:82%;padding:.5rem .75rem;border-radius:.75rem;font-size:.8125rem;line-height:1.25rem;}.msg-in{background:#eff4ff;color:#0b1c30;border-bottom-left-radius:.25rem;align-self:flex-start;}.msg-out{background:#316bf3;color:#fff;border-bottom-right-radius:.25rem;align-self:flex-end;}.msg-time{display:block;font-size:10px;opacity:.65;margin-top:2px;}.iv-tpl{transition:all .15s ease;}.iv-tpl:hover{background:#dce9ff!important;}.iv-rate[aria-pressed="true"]{color:#0051d5!important;}.iv-rate[aria-pressed="true"] .material-symbols-outlined{font-variation-settings:'FILL' 1;}.pipe-grid{display:flex;gap:1rem;align-items:flex-start;}.pipe-col{flex:1 1 0;min-width:0;}@media (max-width:860px){.pipe-grid{flex-direction:column;}.pipe-col{width:100%;}}.pipe-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}@media (max-width:640px){.pipe-cards{grid-template-columns:1fr;}}.pipe-bar{height:6px;border-radius:9999px;background:#e5eeff;overflow:hidden;}.pipe-bar>span{display:block;height:100%;border-radius:9999px;background:#316bf3;transition:width .4s ease;}.pipe-bar.done>span{background:#00a472;}.pipe-stage{transition:all .18s ease;cursor:pointer;}.pipe-stage[aria-current="step"]{outline:2px solid #316bf3;outline-offset:-2px;background:#e5eeff!important;}.pipe-feed{position:relative;}.pipe-feed li{position:relative;padding-left:1.75rem;padding-bottom:.9rem;}.pipe-feed li::before{content:'';position:absolute;left:8px;top:22px;bottom:-2px;width:2px;background:#e5eeff;}.pipe-feed li:last-child::before{display:none;}.pipe-dot{position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:9999px;display:flex;align-items:center;justify-content:center;}.pipe-note{transition:all .18s ease;}.pipe-act{transition:all .15s ease;}.pipe-act:hover{filter:brightness(.97);}.pipe-act:active{transform:scale(.98);}.cv-bar{height:6px;border-radius:9999px;background:#e5eeff;overflow:hidden;}.cv-bar>span{display:block;height:100%;border-radius:9999px;background:#316bf3;}.cv-bar.done>span{background:#00a472;}.cv-bar.warn>span{background:#d97706;}.cv-card{transition:all .18s ease;}.cv-hidden{display:none!important;}.cv-rank{width:26px;height:26px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}.auth-btn-label{display:inline;}@media (max-width:480px){.auth-btn-label{display:none;}#auth-login-btn,#auth-logout-btn{padding-left:.65rem;padding-right:.65rem;}}#auth-menu{position:absolute;right:0;top:calc(100% + 8px);width:230px;z-index:70;transition:opacity .16s ease,transform .16s ease;}#auth-menu.auth-hidden{opacity:0;transform:translateY(-6px);pointer-events:none;}#auth-menu:not(.auth-hidden){opacity:1;transform:none;}#auth-modal,#settings-modal,#auth-gate-wrap{transition:opacity .18s ease;}#auth-toast{transition:opacity .2s ease,transform .2s ease;}body.logged-out #tab-panels,body.logged-out #app-nav{filter:blur(0);}body.logged-out #tab-panels{display:none!important;}body.logged-out #auth-notif-btn,body.logged-out #auth-avatar-btn{display:none!important;}#auth-gate{display:flex;}#auth-gate.auth-hidden{display:none!important;}
+</style><style id="hh-fallback">html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;background:#f8f9ff;color:#0b1c30}.hh-cdn-down main{max-width:900px;margin:0 auto;padding:80px 16px 110px!important}.hh-cdn-down header{position:sticky!important;top:0}.hh-cdn-down nav#app-nav{position:fixed!important;bottom:0;left:0;right:0;background:#fff!important;border-top:1px solid #e5eeff}.hh-cdn-down img{max-width:100%}</style><script>window.addEventListener('load',function(){setTimeout(function(){if(!window.tailwind){document.body.classList.add('hh-cdn-down');}},2500);});</script></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><noscript><div style="padding:88px 16px;text-align:center;font-family:sans-serif">Honest Hire needs JavaScript enabled to run the vetting feed, interviews and pipeline tabs.</div></noscript><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Honest Hire" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGbFm5ERarzFZrPnCVPM-RmH0EkUlUjwyp3gErr1U89eemkaG3Nl3M2GDWmkAgnETtb2MljgVm5Wc9H_rMlYhyuvusKk7Cm-X1Y03_pXXqpz1vs0PhYoVBoLEEc7NcYoRP9ry8cj-91lA0pebDPqra6uSmaimazvPftPBJkiQofsgX08nP1jo0OCHD_piiKPFBSGxAEFi9Wi3VfgN8KbfJU7-uMRz86uIjSPTCzzhv-VKIJgiax6MDc9Fr45OSoE7PFwc" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2732%27 fill=%27%23dbe1ff%27/%3E%3Ctext x=%2732%27 y=%2741%27 font-size=%2724%27 text-anchor=%27middle%27 fill=%27%2300174b%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EHH%3C/text%3E%3C/svg%3E'"><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Candidate Vetting Feed</span></div></div><div class="flex items-center gap-space-xs relative"><button id="auth-login-btn" type="button" data-action="auth-open-login" class="hidden items-center gap-1.5 pl-3 pr-3.5 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95 whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">login</span><span class="auth-btn-label">Log in</span></button><button id="auth-notif-btn" title="Notifications" aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary rounded-xl transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary-container ring-2 ring-surface"></span></button><button id="auth-avatar-btn" title="Account: View Profile, Settings, Log out" aria-label="Account menu" aria-haspopup="menu" aria-expanded="false" aria-controls="auth-menu" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEsjPbOLv41q6LiMeefo_lewwtoug1lCu14lvVe1bRS9CcTIna8YQkYFa7lMazOUvFIKTK_c5PdhJQBtd_aaq78R9SlzbHqT_nAiWJLRRDnYzjvZKNkgapaPAtENiokKiaoWSXiYOfX0CXecNcMmylCKIbuFdjvxSmJe3VtvFHlEsBptmbwF_HigVznbXdZg5Zc6Mx-5M9Z424zNJWNCPZUxthbA_P0BkmXD_S2RxAmMi43HkIRqc5qg" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2732%27 fill=%27%23dbe1ff%27/%3E%3Ctext x=%2732%27 y=%2741%27 font-size=%2724%27 text-anchor=%27middle%27 fill=%27%2300174b%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EHH%3C/text%3E%3C/svg%3E'"></button><button id="auth-logout-btn" type="button" data-action="auth-logout" title="Log out" aria-label="Log out" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-container text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">logout</span><span class="auth-btn-label">Log out</span></button><div id="auth-menu" class="auth-hidden absolute bg-surface-container-lowest rounded-xl shadow-lg p-2 flex-col gap-1" role="menu" aria-label="Account" style="display:flex"><div class="flex items-center gap-2.5 px-2 py-2"><div id="auth-menu-initials" class="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-[13px] flex-shrink-0" style="background:#dbe1ff;color:#00174b">--</div><div class="flex flex-col min-w-0"><span id="auth-menu-name" class="font-label-md text-label-md text-primary font-semibold truncate">Not signed in</span><span id="auth-menu-email" class="font-body-sm text-body-sm text-on-surface-variant truncate">Team account</span></div></div><button type="button" data-action="auth-profile" role="menuitem" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-container-low text-left"><span class="material-symbols-outlined text-[18px] text-secondary">person</span><span class="font-label-md text-label-md text-primary">View Profile</span></button><button type="button" data-action="auth-settings" role="menuitem" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-container-low text-left"><span class="material-symbols-outlined text-[18px] text-secondary">settings</span><span class="font-label-md text-label-md text-primary">Settings</span></button><div class="h-px bg-surface-container my-1"></div><button type="button" data-action="auth-logout" role="menuitem" class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-container-low text-left"><span class="material-symbols-outlined text-[18px] text-secondary">logout</span><span class="font-label-md text-label-md text-primary font-semibold">Log out</span></button></div></div></div></header><div id="auth-gate" class="auth-hidden flex-1 w-full flex-col items-center justify-center gap-space-sm py-10" style="display:none"><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col items-center gap-space-sm w-full" style="max-width:420px"><div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[26px]">lock</span></div><h1 class="font-headline-sm text-headline-sm text-primary">You are logged out</h1><p class="font-body-sm text-body-sm text-on-surface-variant" style="text-align:center">Candidate profiles and hiring data are hidden while logged out. Log in to continue.</p><button type="button" data-action="auth-open-login" class="py-2.5 px-6 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Log in</button></div></div><div id="auth-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Log in"><div class="absolute inset-0" style="background:rgba(15,23,42,.45)" data-action="auth-close-login"></div><div class="relative bg-surface-container-lowest rounded-xl shadow-lg p-space-md flex flex-col gap-space-sm w-full" style="max-width:400px"><div class="flex items-center justify-between"><h3 class="font-headline-sm text-headline-sm text-primary">Log in</h3><button type="button" data-action="auth-close-login" aria-label="Close" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">close</span></button></div><p class="font-body-sm text-body-sm text-on-surface-variant">Log in with your team account. Feedback, uploads and pipeline actions are recorded under your name.</p>
+<div class="flex flex-col gap-1.5"><span class="font-label-sm text-label-sm text-on-surface-variant">Sign in as</span><div id="auth-role-tabs" role="group" aria-label="Choose your role" class="grid grid-cols-2 gap-1.5"><button type="button" id="auth-role-admin" data-role-tab="admin" data-role-hidden="1" aria-pressed="false" aria-hidden="true" tabindex="-1" class="hidden auth-hidden auth-role-tab px-2 py-2 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm">Admin</button><button type="button" id="auth-role-employee" data-role-tab="employee" aria-pressed="false" class="auth-role-tab px-2 py-2 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm">Employer</button><button type="button" id="auth-role-candidate" data-role-tab="candidate" aria-pressed="false" class="auth-role-tab px-2 py-2 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm">Candidate</button></div><p id="auth-role-hint" class="font-label-sm text-label-sm text-on-surface-variant">Pick a role to load its demo account.</p></div>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Work email</span><input id="auth-email" type="email" placeholder="hiring@honesthire.app" autocomplete="username" class="px-3 py-2.5 rounded-xl bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Password</span><input id="auth-pass" type="password" placeholder="Team password" autocomplete="current-password" class="px-3 py-2.5 rounded-xl bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label id="auth-admin-key-field" class="hidden flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Admin security key</span><input id="auth-admin-key" type="password" placeholder="Enter admin security key" autocomplete="one-time-code" class="px-3 py-2.5 rounded-xl bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<p id="auth-err" class="hidden font-body-sm text-body-sm" style="color:#ba1a1a">Could not log in. Check the email and password.</p>
+<button type="button" data-action="auth-submit" id="auth-submit-btn" class="py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Log in</button></div></div><div id="settings-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Settings"><div class="absolute inset-0" style="background:rgba(15,23,42,.45)" data-action="auth-settings-close"></div><div class="relative bg-surface-container-lowest rounded-xl shadow-lg p-space-md flex flex-col gap-space-sm w-full" style="max-width:400px"><div class="flex items-center justify-between"><h3 class="font-headline-sm text-headline-sm text-primary">Settings</h3><button id="settings-close-btn" type="button" data-action="auth-settings-close" aria-label="Close settings" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">close</span></button></div><div class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Account Info</span><div class="flex items-center gap-2.5 px-2 py-2 rounded-xl bg-surface-container-low"><div class="w-9 h-9 rounded-full flex items-center justify-center font-semibold text-[13px] flex-shrink-0" style="background:#dbe1ff;color:#00174b">AR</div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-primary font-semibold truncate">A. Recruiter</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">hiring@honesthire.app · Recruiter</span></div></div></div><fieldset class="flex flex-col gap-1"><legend class="font-label-sm text-label-sm text-on-surface-variant">Theme</legend><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="radio" name="settings-theme" id="settings-theme-light" value="light"> Light</label><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="radio" name="settings-theme" id="settings-theme-dark" value="dark"> Dark</label><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="radio" name="settings-theme" id="settings-theme-system" value="system"> System (follows device)</label></fieldset><fieldset class="flex flex-col gap-1"><legend class="font-label-sm text-label-sm text-on-surface-variant">Notification Preferences</legend><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="checkbox" id="settings-notif-offers"> Offer and check updates (email)</label><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="checkbox" id="settings-notif-interviews"> Interview reminders (push)</label><label class="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-surface-container-low font-body-sm text-body-sm text-primary"><input type="checkbox" id="settings-notif-digest"> Weekly hiring digest (email)</label></fieldset><div class="flex gap-2"><button type="button" data-action="auth-settings-save" class="flex-1 py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Save settings</button><button type="button" data-action="auth-settings-close" class="py-2.5 px-4 rounded-xl bg-surface-container text-primary font-label-md text-label-md font-semibold hover:opacity-95">Close</button></div></div></div><div id="auth-toast" class="hidden fixed left-1/2 z-[80] px-4 py-2.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md shadow-lg" style="bottom:96px;transform:translateX(-50%)" role="status" aria-live="polite"></div><main class="flex-1 w-full bg-surface pt-16 pb-24 px-margin-mobile flex flex-col"><div id="tab-panels" class="flex flex-col w-full gap-space-md">
+<!-- TAB PANEL: CHECKS (default active). Pattern: <section data-tab-panel="id"> + nav <a data-tab="id"> + TAB_META entry. -->
+<div data-tab-panel="checks" id="panel-checks" role="tabpanel" aria-labelledby="nav-checks" class="tab-panel is-visible flex-col w-full gap-space-md">
+<!-- CHECKS FILTER BAR: filters check-detail groups without reload -->
+<div id="checks-filterbar" class="flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1.5"><span class="live-dot w-2 h-2 rounded-full inline-block" style="background:#00a472" aria-hidden="true"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Showing <strong id="checks-result-count" class="text-primary">4</strong> groups • <span id="checks-live-stamp">Live feed updated just now</span></span></div>
+<div class="flex items-center gap-1"><button type="button" data-action="refresh-feed" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">refresh</span>Refresh</button><button type="button" data-action="expand-all" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">unfold_more</span>Expand</button></div>
+</div>
+<div id="checks-chips" class="flex gap-1.5 overflow-x-auto pb-1" role="group" aria-label="Filter background check details"><button type="button" data-check-filter="all" aria-pressed="true" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">apps</span>All</button><button type="button" data-check-filter="live" aria-pressed="false" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">rss_feed</span>Live feed</button><button type="button" data-check-filter="identity" aria-pressed="false" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">fingerprint</span>ID + Biometrics</button><button type="button" data-check-filter="employment" aria-pressed="false" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">assured_workload</span>Employment</button><button type="button" data-check-filter="skills" aria-pressed="false" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">workspace_premium</span>Skills</button><button type="button" data-check-filter="education" aria-pressed="false" class="chip-filter inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-primary whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-secondary">school</span>Education</button></div>
+<p id="checks-empty" class="hidden font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest rounded-xl p-3 shadow-sm">No groups match. <button type="button" data-check-filter="all" class="text-secondary font-semibold hover:underline">Show all</button></p>
+</div>
+<!-- Overview & Pipeline Progress Tracker -->
+<section data-check-category="live identity" data-check-title="Overview & Live Feed" class="check-section flex flex-col gap-space-sm">
+<!-- Requisition & Candidate Selection Chip -->
+<div class="flex items-center justify-between gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-secondary">tune</span>
+<span class="font-label-sm text-label-sm text-primary">REQ-4091: Staff Platform Eng</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-container text-on-tertiary-container">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="font-label-sm text-label-sm">Audited &amp; Encrypted</span>
+</div>
+</div>
+<!-- Title & Subtitle Card -->
+<div class="flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm gap-1">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-sm text-headline-sm text-primary">Background &amp; Reference Checks</h1>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Live Feed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cryptographic identity, payroll &amp; managerial peer verification</p>
+<!-- 3-Step Pipeline Tracker -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between relative">
+<div class="absolute left-6 right-6 top-3 h-0.5 bg-surface-container z-0"></div>
+<div class="absolute left-6 w-[75%] top-3 h-0.5 bg-secondary-container z-0"></div>
+<!-- Step 1: Initiated -->
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Initiated</span>
+</div>
+<!-- Step 2: Processing -->
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm ring-4 ring-secondary-fixed/50">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Processing</span>
+</div>
+<!-- Step 3: Complete (Active Finalizing 98%) -->
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+</div>
+<div class="flex items-center gap-0.5">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">98% Done</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Candidate Identity & Biometric Verification Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<!-- Candidate Head Profile -->
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img alt="Elena Rostova Candidate Profile" class="w-14 h-14 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WjGZIsMOC-Tswi_exgjhF5UWwNupPAW6jdcaO1Tcqfubw0l8u_vPdhYWhQQePBYFb5Aii9VXVGkFumChr4PkGfII5pTt74EimAQTpdkxyIj3uPQa8exVD79PVSBUkHFs_g30ROLCjl0ceK9frLDMlnt7Ef5QqxbbumyIeoCaHcyVoQuib9ZhlcQPl0Gmqm0DF3oH6nOCebMjQoWber9aGEre9zJeIBi2KksEKPP9sfLdKor_1SnkgzAK7T" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2732%27 fill=%27%23dbe1ff%27/%3E%3Ctext x=%2732%27 y=%2741%27 font-size=%2724%27 text-anchor=%27middle%27 fill=%27%2300174b%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EHH%3C/text%3E%3C/svg%3E'">
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-primary truncate">Elena Rostova</h2>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">shield</span> Confirmed Match
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Staff Distributed Systems Architect</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Trust Score 98/100</span>
+<span class="text-on-surface-variant text-[10px]">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tier 5 (Max)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Verified ID Credentials Breakdown -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Government Credential Biometrics</span>
+<!-- Passport Item -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">US Passport (• • • • 8421)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Biometric NFC &amp; Stripe Identity match</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-[20px] flex-shrink-0">check_circle</span>
+</div>
+<!-- State Driver License Item -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">contact_emergency</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">California REAL ID Driver's License</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Residential address &amp; SSN parity checked</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-[20px] flex-shrink-0">check_circle</span>
+</div>
+</div>
+<!-- Ledger SHA-256 Proof & Full Dossier Export -->
+<div class="flex items-center justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-1.5 min-w-0 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">terminal</span>
+<code class="font-label-sm text-label-sm text-on-surface-variant truncate">SHA256: 0x7F9B...84C1</code>
+</div>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-sm hover:opacity-95 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">file_download</span>
+<span class="">View Full Dossier</span>
+</button>
+</div>
+</section>
+<!-- Verified Employment & Payroll Records -->
+<section data-check-category="employment" data-check-title="Employment & Payroll" data-collapsible class="check-section bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">assured_workload</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Employment &amp; Payroll Records</h2>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-secondary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[12px]">sync</span>
+        IRS W-2 Live
+      </span>
+</div>
+<!-- Employer Records Timeline -->
+<div class="flex flex-col gap-space-sm mt-1">
+<!-- Stripe Record -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Stripe</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">verified</span> Verified W-2
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2021 – 2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary">Senior Distributed Systems Engineer (Platform)</p>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest mt-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">supervisor_account</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">Alexey K. • VP Engineering</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">"Exceptional architectural clarity under high load."</span>
+</div>
+</div>
+<div class="flex items-center gap-0.5 px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-xs font-semibold">
+            5.0 ★
+          </div>
+</div>
+</div>
+<!-- Datadog Record -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Datadog</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">verified</span> Verified W-2
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2018 – 2021</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary">Senior Infrastructure Engineer</p>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest mt-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">supervisor_account</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">Tara Lin • Director of Infrastructure</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">"Reliable system scaler and outstanding peer mentor."</span>
+</div>
+</div>
+<div class="flex items-center gap-0.5 px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-xs font-semibold">
+            4.9 ★
+          </div>
+</div>
+</div>
+<!-- Cloudflare Record -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Cloudflare</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">verified</span> Verified W-2
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2016 – 2018</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary">Systems Engineer (Edge Networking)</p>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest mt-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">pending</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary truncate">Peer Reference In-Flight</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Sent to Staff Eng peer • Awaiting response</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm" type="button">
+            Nudge
+          </button>
+</div>
+</div>
+</div>
+<!-- Quick Footer Actions -->
+<div class="flex items-center justify-between pt-1">
+<button class="font-label-sm text-label-sm text-secondary flex items-center gap-1 hover:underline" type="button">
+<span class="material-symbols-outlined text-[14px]">history</span> Inspect Complete Audit Trail
+      </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">
+        Request Expedited Ref
+      </button>
+</div>
+</section>
+<!-- Certified Skill Credential Badges -->
+<section data-check-category="skills" data-check-title="Skill Credentials" data-collapsible class="check-section bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">workspace_premium</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Certified Skill Credentials</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Active Badges</span>
+</div>
+<!-- Badges Grid / Cards -->
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Python Expert -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">Top 1%</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">Python Core</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Codility Score 99/100</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Algorithmic Concurrency</span>
+</div>
+<!-- Distributed Systems Arch -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Certified Lead</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">Distributed Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Raft / Paxos Consensuses</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Arch Council Verified</span>
+</div>
+<!-- Rust Core -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">Top 3%</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">Rust Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Async Tokio Runtime</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Live Execution Sandbox</span>
+</div>
+<!-- System Architecture -->
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col justify-between gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Certified</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary font-bold">IEEE Architecture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fault-Tolerant Patterns</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Credentials Audited</span>
+</div>
+</div>
+</section>
+<!-- Education & Background Regulatory Check Summary -->
+<section data-check-category="education" data-check-title="Education & Regulatory" data-collapsible class="check-section bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm mb-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">school</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Education &amp; Regulatory Clearances</h2>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Degree Verification -->
+<div class="flex items-start justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-secondary">school</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">M.S. Computer Science • Stanford University</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">National Student Clearinghouse (NSC) Electronic Seal</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> Degree Valid
+        </span>
+</div>
+<!-- Regulatory & Criminal Check -->
+<div class="flex items-start justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-secondary">gavel</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Criminal &amp; Global Watchlist Search</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Federal, County 7-Year &amp; Interpol database scrub</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> Clean
+        </span>
+</div>
+</div>
+<!-- Final Approval Action Bar -->
+<div class="pt-space-xs flex items-center gap-2">
+<button id="checks-offer" type="button" data-pipeline-action="offer" class="flex-1 py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+        Accept &amp; Issue Final Offer
+      </button>
+<button class="p-2.5 rounded-xl bg-surface-container text-primary flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</section>
+</div><!-- /TAB PANEL: CHECKS -->
+<!-- TAB PANEL: CANDIDATES (ranking + vetting feed) -->
+<section data-tab-panel="candidates" id="panel-candidates" role="tabpanel" aria-labelledby="nav-candidates" hidden class="tab-panel flex-col w-full gap-space-md">
+<div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between gap-space-xs"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[15px] text-secondary">tune</span><span class="font-label-sm text-label-sm text-primary">REQ-4091: Staff Platform Eng</span></div><span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Ranked feed</span></div><div class="flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm gap-1"><div class="flex items-center justify-between"><h1 class="font-headline-sm text-headline-sm text-primary">Candidate Vetting Feed</h1><span id="cv-count-pill" class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Loading…</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Trust-ranked applicants from MongoDB. Search, filter, then open their pipeline.</p><p id="cv-status" class="font-body-sm text-body-sm text-on-surface-variant" aria-live="polite">Loading candidates from MongoDB…</p></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-sm flex flex-col gap-space-xs"><div class="relative"><span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-2.5 top-1/2 -translate-y-1/2">search</span><input id="cv-search" type="search" placeholder="Search name, role or skill" aria-label="Search candidates" class="w-full pl-9 pr-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></div><div class="grid grid-cols-3 gap-2"><label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Requisition</span><select id="cv-req" aria-label="Filter by requisition" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="REQ-4091" selected>REQ-4091</option><option value="all">All reqs</option></select></label><label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Trust Score</span><select id="cv-trust" aria-label="Filter by trust score" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="90">90+</option><option value="80" selected>80+</option><option value="0">Any score</option></select></label><label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Clearance Tier</span><select id="cv-tier" aria-label="Filter by clearance tier" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="any" selected>Any tier</option><option value="5">Tier 5</option><option value="4">Tier 4+</option><option value="3">Tier 3+</option></select></label></div></div></div>
+
+<label for="cv-verification">Verification status</label><select id="cv-verification" class="p-2 rounded-xl bg-surface-container-lowest"><option value="all">All statuses</option><option value="verified">Verified</option><option value="in_progress">In progress</option><option value="pending">Pending</option></select>
+<button type="button" data-action="cv-reset" class="py-2 px-3 rounded-xl bg-surface-container">Reset filters</button>
+<button id="live-refresh" type="button" class="py-2 px-3 rounded-xl bg-secondary-container text-on-secondary-container">Refresh live data</button><button id="cv-add-open" type="button" class="py-2 px-3 rounded-xl bg-tertiary-container text-on-tertiary-container">Add candidate</button><div id="cv-list" class="flex flex-col gap-space-md"></div><p id="cv-empty" class="hidden">No matching candidates. Try changing the filters, or add one below.</p>
+<!-- CANDIDATE INGESTION MODAL: creates a real candidate via POST /api/candidates -->
+<div id="cv-add-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Add a candidate">
+<div class="absolute inset-0" style="background:rgba(15,23,42,.45)" data-action="cv-close-add"></div>
+<form id="cv-add-form" class="relative bg-surface-container-lowest rounded-xl shadow-lg p-space-md flex flex-col gap-space-sm w-full" style="max-width:520px">
+<div class="flex items-center justify-between"><h3 class="font-headline-sm text-headline-sm text-primary">Add a candidate</h3><button type="button" data-action="cv-close-add" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary" aria-label="Close"><span class="material-symbols-outlined text-[18px]">close</span></button></div>
+<p id="cv-add-error" role="status" aria-live="polite" class="hidden font-body-sm text-body-sm text-error"></p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+<label class="flex flex-col gap-1 md:col-span-2"><span class="font-label-sm text-label-sm text-on-surface-variant">Full name *</span><input id="cv-add-name" type="text" placeholder="E.g. Aisha Patel" maxlength="200" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Role *</span><input id="cv-add-role" type="text" placeholder="Senior Backend Engineer" maxlength="300" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Location *</span><input id="cv-add-location" type="text" placeholder="Austin, TX" maxlength="200" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Trust score *</span><input id="cv-add-trust" type="number" min="0" max="100" placeholder="0–100" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Clearance tier *</span><select id="cv-add-tier" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="1">Tier 1</option><option value="2">Tier 2</option><option value="3" selected>Tier 3</option><option value="4">Tier 4</option><option value="5">Tier 5</option></select></label>
+<label class="flex flex-col gap-1 md:col-span-2"><span class="font-label-sm text-label-sm text-on-surface-variant">Verified skills (comma separated)</span><input id="cv-add-skills" type="text" placeholder="e.g. React, TypeScript, Go" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Verification status</span><select id="cv-add-verify" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="pending">Pending</option><option value="in_progress">In progress</option><option value="verified">Verified</option></select></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">ID documents (comma separated)</span><input id="cv-add-docs" type="text" placeholder="e.g. US Passport, State ID" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<div class="md:col-span-2 flex flex-col gap-1 rounded-lg bg-surface-container-low p-2.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Attach a document (PDF, DOC/DOCX, PNG/JPEG or TXT · max 8 MB)</span>
+<div class="flex flex-col md:flex-row gap-2">
+<input id="cv-add-file" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt" aria-label="Resume or ID verification file" class="flex-1 font-body-sm text-body-sm text-primary file:mr-2 file:px-3 file:py-1.5 file:rounded-lg file:border-0 file:bg-tertiary-container file:text-on-tertiary-container file:font-label-sm">
+<select id="cv-add-kind" aria-label="Attached document type" class="md:w-48 px-2.5 py-2 rounded-lg bg-surface-container-lowest text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container">
+<option value="resume" selected>Resume / CV</option>
+<option value="id_verification">ID verification</option>
+<option value="other">Other document</option>
+</select>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Stored in MongoDB (GridFS) and linked to the new candidate record after it is saved.</span>
+</div>
+<fieldset class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-2 rounded-lg"><legend class="font-label-sm text-label-sm text-on-surface-variant px-1">Pipeline (optional — fills Requisition when at least a code is given)</legend>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Requisition</span><input id="cv-add-req" type="text" placeholder="e.g. REQ-4091" maxlength="100" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Step</span><input id="cv-add-step" type="number" min="1" max="5" placeholder="1–5" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Completion %</span><input id="cv-add-pct" type="number" min="0" max="100" placeholder="0–100" class="px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></label>
+</fieldset>
+</div>
+<div class="flex items-center gap-2"><button type="submit" id="cv-add-submit" class="py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Add to MongoDB</button><button type="button" data-action="cv-close-add" class="py-2.5 px-4 rounded-xl bg-surface-container text-primary font-label-md text-label-md">Cancel</button></div>
+</form>
+</div>
+</section>
+<!-- TAB PANEL: INTERVIEWS (2-column: candidate list + detail view) -->
+<section data-tab-panel="interviews" id="panel-interviews" role="tabpanel" aria-labelledby="nav-interviews" hidden class="tab-panel flex-col w-full gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[15px] text-secondary">tune</span><span class="font-label-sm text-label-sm text-primary">REQ-4091: Staff Platform Eng</span></div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Hiring loop</span>
+</div>
+<div class="flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm gap-1">
+<div class="flex items-center justify-between"><h1 class="font-headline-sm text-headline-sm text-primary">Interviews &amp; Messages</h1><span id="iv-unread-pill" class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-medium">3 unread</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Schedules, panels and threads — select a candidate to view details.</p>
+</div>
+<div class="iv-grid">
+<div class="iv-list-col bg-surface-container-lowest rounded-xl shadow-sm p-space-sm flex flex-col gap-space-xs">
+<div class="relative"><span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-2.5 top-1/2 -translate-y-1/2">search</span><input id="iv-search" type="search" placeholder="Search name or role" aria-label="Search candidates" class="w-full pl-9 pr-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></div>
+<div class="flex gap-1.5" role="group" aria-label="Filter candidate list"><button type="button" data-iv-list-filter="all" aria-pressed="true" class="iv-ltab px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">All</button><button type="button" data-iv-list-filter="upcoming" aria-pressed="false" class="iv-ltab px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Upcoming</button><button type="button" data-iv-list-filter="messages" aria-pressed="false" class="iv-ltab px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Messages</button></div>
+<div class="grid grid-cols-3 gap-2">
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Pipeline stage</span><select id="iv-stage" aria-label="Filter by pipeline stage" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="any" selected>Any stage</option><option value="1">1 · Sourced</option><option value="2">2 · Screening</option><option value="3">3 · Assessment</option><option value="4">4 · Checks</option><option value="5">5 · Offer</option></select></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Verification</span><select id="iv-verification" aria-label="Filter by verification status" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="all" selected>All statuses</option><option value="verified">Verified</option><option value="in_progress">In progress</option><option value="pending">Pending</option></select></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Clearance</span><select id="iv-tier" aria-label="Filter by clearance tier" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="any" selected>Any tier</option><option value="5">Tier 5</option><option value="4">Tier 4+</option><option value="3">Tier 3+</option><option value="2">Tier 2+</option><option value="1">Tier 1+</option></select></label>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant"><strong id="iv-count" class="text-primary">5</strong> candidates · <span id="iv-filter-note">live MongoDB filters when the backend is running</span> <button type="button" data-action="iv-reset" class="text-secondary font-semibold hover:underline ml-1">Reset</button></span>
+<div id="iv-list" class="flex flex-col gap-2" role="listbox" aria-label="Candidates"></div>
+<p id="iv-list-empty" class="hidden font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low rounded-lg p-3">No candidates match. <button type="button" data-iv-list-filter="all" class="text-secondary font-semibold hover:underline">Clear filters</button></p>
+</div>
+<div class="iv-detail-col flex flex-col gap-space-sm min-w-0">
+<div id="iv-banner" class="hidden items-start gap-2.5 p-space-sm rounded-xl bg-error-container text-on-error-container shadow-sm">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+<div class="flex flex-col gap-0.5 flex-1 min-w-0"><span class="font-label-md text-label-md font-semibold">Pre-hire checks pending</span><span class="font-body-sm text-body-sm opacity-90">Offer steps are locked until background verification completes.</span></div>
+<button type="button" data-goto-tab="checks" class="px-3 py-1.5 rounded-lg bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold whitespace-nowrap">Review checks</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center gap-3">
+<div id="iv-avatar" class="w-12 h-12 rounded-full flex items-center justify-center font-semibold text-[15px] flex-shrink-0" style="background:#dbe1ff;color:#00174b">ER</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-2 flex-wrap"><h2 id="iv-name" class="font-headline-sm text-headline-sm text-primary">Elena Rostova</h2><span id="iv-clear-badge" class="px-2 py-0.5 rounded-full font-label-sm text-label-sm inline-flex items-center gap-1" style="background:#6ffbbe;color:#005236"><span class="material-symbols-outlined text-[12px]">verified</span><span id="iv-clear-text">Cleared</span></span></div>
+<p id="iv-role" class="font-body-sm text-body-sm text-on-surface-variant">Staff Distributed Systems Architect</p>
+<div class="flex items-center gap-3 flex-wrap mt-0.5"><span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">mail</span><span id="iv-email">elena.r@mail.com</span></span><span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">call</span><span id="iv-phone">+1 (415) 555-0132</span></span></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2"><div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[16px]">video_call</span></div><h3 class="font-headline-sm text-headline-sm text-primary">Panel Interview</h3></div>
+<span id="iv-int-status" class="px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold" style="background:#dbe1ff;color:#00174b">Scheduled</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="flex flex-col gap-0.5 p-2 rounded-lg bg-surface-container-low"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Date</span><span id="iv-int-date" class="font-label-md text-label-md text-primary font-semibold">Thu, Sep 18</span></div>
+<div class="flex flex-col gap-0.5 p-2 rounded-lg bg-surface-container-low"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Time</span><span id="iv-int-time" class="font-label-md text-label-md text-primary font-semibold">10:00 AM PT</span></div>
+<div class="flex flex-col gap-0.5 p-2 rounded-lg bg-surface-container-low"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Duration</span><span id="iv-int-dur" class="font-label-md text-label-md text-primary font-semibold">90 min</span></div>
+</div>
+<div class="flex flex-col gap-1.5"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Panel interviewers</span><div id="iv-interviewers" class="flex flex-col gap-1.5"></div></div>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px] text-secondary">videocam</span>
+<div class="flex flex-col min-w-0 flex-1"><span id="iv-meet-label" class="font-label-md text-label-md text-primary font-semibold">Google Meet</span><a id="iv-meet-link" href="https://meet.google.com/abc-defg-hij" target="_blank" rel="noopener" class="font-body-sm text-body-sm text-secondary truncate hover:underline">meet.google.com/abc-defg-hij</a></div>
+<button type="button" data-action="copy-meet" class="px-2.5 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm inline-flex items-center gap-1" title="Copy meeting link"><span class="material-symbols-outlined text-[14px]">content_copy</span><span>Copy</span></button>
+</div>
+<div class="flex items-center gap-2">
+<button type="button" data-action="open-feedback" class="flex-1 py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold flex items-center justify-center gap-2 hover:opacity-95"><span class="material-symbols-outlined text-[18px]">rate_review</span>Submit Feedback</button>
+<button type="button" data-action="join-meet" class="p-2.5 rounded-xl bg-surface-container text-primary flex items-center justify-center" title="Join meeting"><span class="material-symbols-outlined text-[20px]">launch</span></button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-md bg-secondary-fixed flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[16px]">forum</span></div><h3 class="font-headline-sm text-headline-sm text-primary">Messages</h3></div><span id="iv-thread-count" class="font-label-sm text-label-sm text-on-surface-variant">3 messages</span></div>
+<div id="iv-thread" class="iv-thread flex flex-col gap-2 p-2 rounded-lg bg-surface-container-low" aria-live="polite"></div>
+<div class="flex gap-1.5 overflow-x-auto pb-0.5"><button type="button" data-iv-template="0" class="iv-tpl px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm whitespace-nowrap">Confirm schedule</button><button type="button" data-iv-template="1" class="iv-tpl px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm whitespace-nowrap">Checks update</button><button type="button" data-iv-template="2" class="iv-tpl px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm whitespace-nowrap">Next step</button></div>
+<div class="flex items-center gap-2">
+<input id="iv-input" type="text" placeholder="Message candidate…" aria-label="Message input" class="flex-1 px-3 py-2.5 rounded-xl bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container">
+<button type="button" data-action="send-iv-msg" aria-label="Send message" class="w-11 h-11 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 hover:opacity-95"><span class="material-symbols-outlined text-[20px]">send</span></button>
+</div>
+</div>
+</div>
+</div>
+<div id="iv-feedback-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Submit interview feedback">
+<div class="absolute inset-0" style="background:rgba(15,23,42,.45)" data-action="close-feedback"></div>
+<div class="relative bg-surface-container-lowest rounded-xl shadow-lg p-space-md flex flex-col gap-space-sm w-full" style="max-width:420px">
+<div class="flex items-center justify-between"><h3 class="font-headline-sm text-headline-sm text-primary">Interview Feedback</h3><button type="button" data-action="close-feedback" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary" aria-label="Close"><span class="material-symbols-outlined text-[18px]">close</span></button></div>
+<p id="iv-fb-who" class="font-body-sm text-body-sm text-on-surface-variant">For Elena Rostova — Panel, Sep 18</p>
+<p id="iv-fb-author" class="font-body-sm text-body-sm text-on-surface-variant">Submitting as <strong id="iv-fb-author-name" class="text-primary">not signed in</strong> — feedback is stored with your name.</p>
+<textarea id="iv-feedback-text" rows="3" placeholder="Strengths, concerns, hire / no-hire…" aria-label="Feedback notes" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></textarea>
+<p id="iv-fb-status" role="status" aria-live="polite" class="hidden font-body-sm text-body-sm text-on-surface-variant"></p>
+<button type="button" data-action="submit-feedback" id="iv-fb-submit" class="py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Submit feedback</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB PANEL: PIPELINE (profile + 5-stage tracker + metrics + activity/notes + actions) -->
+<section data-tab-panel="pipeline" id="panel-pipeline" role="tabpanel" aria-labelledby="nav-pipeline" hidden class="tab-panel flex-col w-full gap-space-md">
+<div class="flex items-center justify-between gap-space-xs">
+<h1 class="font-headline-sm text-headline-sm text-primary">Pipeline &amp; Profile</h1>
+<span id="pp-match-count" class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Loading…</span>
+</div>
+<!-- PIPELINE FILTER BAR: real-time search + stage / verification / clearance dropdowns (server-side). -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-sm flex flex-col gap-space-xs">
+<div class="relative"><span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-2.5 top-1/2 -translate-y-1/2">search</span><input id="pp-search" type="search" placeholder="Search name, role or skill" aria-label="Search pipeline candidates" class="w-full pl-9 pr-3 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"></div>
+<div class="grid grid-cols-3 gap-2">
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Pipeline stage</span><select id="pp-stage" aria-label="Filter by pipeline stage" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="any" selected>Any stage</option><option value="1">1 · Sourced</option><option value="2">2 · Screening</option><option value="3">3 · Assessment</option><option value="4">4 · Checks</option><option value="5">5 · Offer</option></select></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Verification</span><select id="pp-verification" aria-label="Filter by verification status" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="all" selected>All statuses</option><option value="verified">Verified</option><option value="in_progress">In progress</option><option value="pending">Pending</option></select></label>
+<label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Clearance tier</span><select id="pp-tier" aria-label="Filter by clearance tier" class="px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="any" selected>Any tier</option><option value="5">Tier 5</option><option value="4">Tier 4+</option><option value="3">Tier 3+</option><option value="2">Tier 2+</option><option value="1">Tier 1+</option></select></label>
+</div>
+<div class="flex items-center justify-between gap-2 flex-wrap"><span id="pp-status" class="font-body-sm text-body-sm text-on-surface-variant" aria-live="polite">Loading candidates from MongoDB…</span><button type="button" data-action="pp-reset" class="py-1.5 px-3 rounded-lg bg-surface-container text-primary font-label-sm text-label-sm">Reset filters</button></div>
+<p id="pp-empty" class="hidden font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low rounded-lg p-3">No candidates match these filters.</p>
+</div>
+<!-- CANDIDATE DOSSIER (profile for the selected candidate) -->
+<div id="pp-profile" class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-xs"></div>
+<!-- RESUME / ID DOCUMENTS: uploads go to MongoDB GridFS and are listed per candidate. -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-2"><h2 class="font-headline-sm text-headline-sm text-primary">Resume &amp; ID documents</h2><span id="pp-doc-count" class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">0 files</span></div>
+<div class="flex flex-col md:flex-row gap-2">
+<input id="pp-doc-file" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt" aria-label="Resume or ID file to upload" class="flex-1 font-body-sm text-body-sm text-primary file:mr-2 file:px-3 file:py-1.5 file:rounded-lg file:border-0 file:bg-tertiary-container file:text-on-tertiary-container file:font-label-sm">
+<select id="pp-doc-kind" aria-label="Document type" class="md:w-48 px-2.5 py-2 rounded-lg bg-surface-container-low text-primary font-body-sm text-body-sm outline-none focus:ring-2 focus:ring-secondary-container"><option value="resume" selected>Resume / CV</option><option value="id_verification">ID verification</option><option value="other">Other document</option></select>
+<button type="button" id="pp-doc-upload" class="py-2 px-3 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Upload</button>
+</div>
+<p id="pp-doc-status" role="status" aria-live="polite" class="font-body-sm text-body-sm text-on-surface-variant"></p>
+<div id="pp-documents" class="flex flex-col gap-1.5"></div>
+<p id="pp-doc-empty" class="hidden font-body-sm text-body-sm text-on-surface-variant">No resume or ID files attached yet.</p>
+</div>
+<label for="live-candidate">Candidate</label><select id="live-candidate" class="p-2 rounded-xl bg-surface-container-lowest"></select>
+<button id="live-pipeline-refresh" type="button" class="py-2 px-3 rounded-xl bg-surface-container">Refresh pipeline</button>
+<p id="live-pipeline-status" role="status">Loading candidates…</p>
+<div id="live-actions" class="flex flex-wrap gap-2">
+<button id="live-advance" type="button" data-pipeline-action="advance" class="py-2 px-3 rounded-xl">Advance Stage</button>
+<button id="live-offer" type="button" data-pipeline-action="offer" class="py-2 px-3 rounded-xl">Accept and Issue Final Offer</button>
+<button id="live-hold" type="button" data-pipeline-action="hold" class="py-2 px-3 rounded-xl">Hold</button>
+<button id="live-reject" type="button" data-pipeline-action="reject" class="py-2 px-3 rounded-xl">Reject</button>
+</div>
+<div id="live-toast" role="status" aria-live="polite" class="hidden p-2 rounded-xl"></div>
+<div id="live-pipeline" class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm"></div>
+<p>Live pipeline actions update MongoDB. Checks and Interviews are separate demo screens, not live verification services.</p>
+</section>
+<!-- TAB PANEL: PORTAL (candidate-only). Pattern: <section data-tab-panel="id"> + nav <a data-tab="id"> + TAB_META entry. -->
+<section data-tab-panel="portal" id="portal" role="tabpanel" aria-labelledby="nav-portal" hidden class="tab-panel flex-col w-full gap-space-md"><div class="flex items-center justify-between gap-space-xs"><h1 class="font-headline-sm text-headline-sm text-primary">My Application</h1><span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface">Candidate portal</span></div><div id="portal-panel" class="flex flex-col gap-space-sm"><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 id="portal-application" class="font-headline-sm text-headline-sm text-primary">Application</h2><p id="portal-status-card" class="font-body-sm text-body-sm text-on-surface-variant">Loading your application…</p><p class="font-body-sm text-body-sm text-on-surface-variant">Current step: <span id="portal-stage">Step 1 of 5</span></p></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 class="font-headline-sm text-headline-sm text-primary">My documents</h2><div id="portal-doc-list" class="flex flex-col gap-space-xs"></div><div class="flex gap-space-xs mt-2"><label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Document kind</span><select id="portal-doc-kind" class="px-2.5 py-2 rounded-lg bg-surface-container-low"><option value="resume">Resume / CV</option><option value="id_verification">ID verification</option></select></label><label class="flex flex-col gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">File</span><input id="portal-doc-file" type="file" class="px-2.5 py-2 rounded-lg bg-surface-container-low"></label><button id="portal-doc-upload" type="button" class="py-2.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold hover:opacity-95">Upload</button></div><p id="portal-doc-status" class="font-body-sm text-body-sm text-on-surface-variant" role="status">Loading your application…</p><p id="portal-doc-message" class="portal-toast" role="status"></p></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 class="font-headline-sm text-headline-sm text-primary">Interview feedback</h2><div id="portal-feedback" class="flex flex-col gap-space-xs"></div></div></div>
+</section>
+<!-- TAB PANEL: AUDIT LOGS (admin-only; renders GET /api/admin/audit?action=&limit=) -->
+<section data-tab-panel="audit" id="panel-audit" role="tabpanel" aria-labelledby="nav-audit" hidden class="tab-panel flex-col w-full gap-space-md"><div class="flex items-center justify-between gap-space-xs"><h1 class="font-headline-sm text-headline-sm text-primary">Audit Logs</h1><div class="flex items-center gap-1"><label class="flex items-center gap-1"><span class="font-label-sm text-label-sm text-on-surface-variant">Action</span><select id="audit-filter" class="px-2.5 py-1.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm" aria-label="Filter audit log by action"><option value="">All actions</option><option value="access_denied">access_denied</option><option value="login">login</option><option value="login_failed">login_failed</option><option value="logout">logout</option><option value="pipeline_changed">pipeline_changed</option><option value="checks_updated">checks_updated</option><option value="feedback_added">feedback_added</option><option value="candidate_created">candidate_created</option><option value="document_uploaded">document_uploaded</option><option value="document_deleted">document_deleted</option><option value="export_generated">export_generated</option><option value="team_created">team_created</option><option value="team_role_changed">team_role_changed</option><option value="team_reactivated">team_reactivated</option><option value="sessions_revoked">sessions_revoked</option></select></label><button id="audit-refresh" type="button" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">refresh</span>Refresh</button></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-xs"><p id="audit-summary" class="font-body-sm text-body-sm text-on-surface-variant">Signed-in admins read every recorded action here.</p><div id="audit-list" class="flex flex-col gap-1"></div></div></section>
+<!-- TAB PANEL: ADMIN (role-gated dashboard; fetches are admin-only but still send the session bearer token) -->
+<section data-tab-panel="admin" id="panel-admin" role="tabpanel" aria-labelledby="nav-admin" hidden class="tab-panel flex-col w-full gap-space-md"><div class="flex items-center justify-between gap-space-xs"><h1 class="font-headline-sm text-headline-sm text-primary">Admin Dashboard</h1><button id="admin-refresh" type="button" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">refresh</span>Refresh</button></div><div id="admin-grid" class="grid grid-cols-1 md:grid-cols-3 gap-space-sm"><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 class="font-label-sm text-label-sm text-on-surface-variant mb-1">Hiring Health</h2><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface-variant">Candidates in pipeline</span><span id="admin-candidates-total" class="font-headline-sm text-headline-sm text-primary">—</span></div><div class="flex gap-3 mt-2"><span class="flex flex-col"><span id="admin-sessions-active" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">Active sessions</span></span><span class="flex flex-col"><span id="admin-offer-rate" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">Offer acceptance %</span></span><span class="flex flex-col"><span id="admin-avg-days" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">Avg days to hire</span></span></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 class="font-label-sm text-label-sm text-on-surface-variant mb-1">Database &amp; Storage</h2><div class="flex flex-col"><span class="font-body-sm text-on-surface-variant">Database: <span id="admin-health-db" class="text-primary font-semibold">—</span></span><span class="font-body-sm text-on-surface-variant">Status: <span id="admin-health-status" class="text-primary font-semibold">—</span></span><span class="font-body-sm text-on-surface-variant">Uptime: <span id="admin-uptime" class="text-primary font-semibold">—</span></span></div><div class="mt-2 font-body-sm text-body-sm text-on-surface-variant">Storage: <span id="admin-storage-note" class="text-primary">—</span></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md"><h2 class="font-label-sm text-label-sm text-on-surface-variant mb-1">Pipeline Status</h2><div id="admin-status-grid" class="grid grid-cols-3 gap-1 text-center"><span class="flex flex-col"><span id="admin-status-completed" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">Completed</span></span><span class="flex flex-col"><span id="admin-status-in-progress" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">In progress</span></span><span class="flex flex-col"><span id="admin-status-pending" class="font-headline-sm text-primary">—</span><span class="font-label-sm text-body-sm text-on-surface-variant">Pending</span></span></div></div></div><h2 class="font-label-sm text-label-sm text-on-surface-variant mt-3 mb-1">Team Accounts</h2><div id="admin-team-list" class="flex flex-col gap-1"></div><h2 class="font-label-sm text-label-sm text-on-surface-variant mt-3 mb-1">Requisition Summary</h2><div id="admin-req-list" class="flex flex-col gap-1"></div>
+</section>
+</div>
+<script>
+/* Honest Hire tab + check-filter controller (no reloads).
+PATTERN to add/switch tabs: add nav <a data-tab="x"> + panel <section data-tab-panel="x"> + TAB_META entry. */
+(function(){
+"use strict";
+var TAB_META={checks:{title:"Background & Reference Checks"},candidates:{title:"Candidate Vetting Feed"},interviews:{title:"Interviews & Messages"},pipeline:{title:"Pipeline & Profile"},admin:{title:"Admin Dashboard"},audit:{title:"Audit Logs"},portal:{title:"My Application"}};
+var ACTIVE="checks";
+function navLinks(){return Array.prototype.slice.call(document.querySelectorAll('#app-nav a[data-tab]'));}
+function panels(){return Array.prototype.slice.call(document.querySelectorAll('[data-tab-panel]'));}
+function setActiveTab(id,push){
+if(!TAB_META[id])id="checks";ACTIVE=id;
+navLinks().forEach(function(a){var on=a.getAttribute("data-tab")===id;
+a.classList.toggle("tab-active",on);a.classList.toggle("text-secondary",on);a.classList.toggle("font-semibold",on);a.classList.toggle("text-on-surface-variant",!on);
+if(on){a.setAttribute("aria-current","page");}else{a.removeAttribute("aria-current");}
+var ic=a.querySelector(".material-symbols-outlined");if(ic){ic.style.fontVariationSettings=on?"'FILL' 1":"'FILL' 0";}});
+panels().forEach(function(p){var on=p.getAttribute("data-tab-panel")===id;
+p.classList.toggle("is-visible",on);if(on){p.removeAttribute("hidden");}else{p.setAttribute("hidden","");}});
+try{if(push!==false){history.replaceState(null,"","#/"+id);}document.title="Honest Hire - "+TAB_META[id].title;}catch(e){}
+var sub=document.querySelector("header span.truncate");if(sub){sub.textContent=TAB_META[id].title;}}
+function sections(){return Array.prototype.slice.call(document.querySelectorAll('#panel-checks .check-section'));}
+function applyFilter(f){
+var list=sections(),shown=0;
+list.forEach(function(s){var cats=(s.getAttribute("data-check-category")||"").split(" ");
+var show=(f==="all")||cats.indexOf(f)>-1;s.classList.toggle("is-hidden",!show);if(show)shown++;});
+Array.prototype.forEach.call(document.querySelectorAll("[data-check-filter]"),function(b){
+var on=b.getAttribute("data-check-filter")===f;b.setAttribute("aria-pressed",on?"true":"false");});
+var c=document.getElementById("checks-result-count");if(c)c.textContent=shown;
+var e=document.getElementById("checks-empty");if(e)e.classList.toggle("hidden",shown!==0);}
+function stamp(msg){var el=document.getElementById("checks-live-stamp");if(el)el.textContent=msg;}
+function now(){var d=new Date(),h=d.getHours(),m=("0"+d.getMinutes()).slice(-2),ap=h>=12?"PM":"AM";h=h%12||12;return h+":"+m+" "+ap;}
+function initCollapsibles(){
+sections().forEach(function(s){
+if(!s.hasAttribute("data-collapsible"))return;
+if(s.querySelector("[data-action='toggle-section']"))return;
+s.style.position=s.style.position||"relative";
+var btn=document.createElement("button");
+btn.type="button";btn.setAttribute("data-action","toggle-section");btn.setAttribute("aria-expanded","true");btn.title="Collapse/expand";
+btn.className="absolute top-3 right-3 w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-primary";
+btn.innerHTML='<span class="material-symbols-outlined text-[16px] collapse-chevron">expand_more</span>';
+s.appendChild(btn);
+var body=document.createElement("div");body.className="collapsible-body flex flex-col gap-space-sm contents";
+while(btn.previousSibling&&btn.previousSibling.nodeType===1&&btn.previousSibling.tagName!=="BUTTON"){break;}
+});}
+document.addEventListener("click",function(ev){
+var nav=ev.target.closest&&ev.target.closest('#app-nav a[data-tab]');
+if(nav){ev.preventDefault();setActiveTab(nav.getAttribute("data-tab"));return;}
+var go=ev.target.closest&&ev.target.closest("[data-goto-tab]");
+if(go){ev.preventDefault();setActiveTab(go.getAttribute("data-goto-tab"));window.scrollTo({top:0,behavior:"smooth"});return;}
+var chip=ev.target.closest&&ev.target.closest("[data-check-filter]");
+if(chip){ev.preventDefault();applyFilter(chip.getAttribute("data-check-filter"));return;}
+var act=ev.target.closest&&ev.target.closest("[data-action]");
+if(!act)return;var a=act.getAttribute("data-action");
+if(a==="toggle-section"){var s=act.closest(".check-section");if(!s)return;
+s.classList.toggle("is-collapsed");act.setAttribute("aria-expanded",s.classList.contains("is-collapsed")?"false":"true");return;}
+if(a==="expand-all"){sections().forEach(function(s){s.classList.remove("is-collapsed");});stamp("All groups expanded - "+now());return;}
+if(a==="refresh-feed"){stamp("Refreshing live feed...");setTimeout(function(){stamp("Live feed updated "+now());applyFilter("all");},650);return;}});
+document.addEventListener("DOMContentLoaded",function(){
+initCollapsibles();
+var h=(location.hash||"").replace("#/","").replace("#","");
+setActiveTab(TAB_META[h]?h:"checks",false);applyFilter("all");stamp("Live feed updated just now");});
+/* Interviews & Messages controller — same pattern: data-* hooks, delegated events, no reloads. */
+(function(){
+"use strict";
+var CANDS=[
+{id:"elena",name:"Elena Rostova",role:"Staff Distributed Systems Architect",initials:"ER",email:"elena.r@mail.com",phone:"+1 (415) 555-0132",clearance:"cleared",clearLabel:"Cleared • Trust 98",group:"upcoming",time:"Thu 10:00 AM",unread:0,intDate:"Thu, Sep 18, 2026",intTime:"10:00 – 11:30 AM PT",dur:"90 min • Panel of 3",status:"Scheduled",panel:[["Alexey K.","VP Engineering"],["Tara Lin","Director, Infrastructure"],["S. Patel","Staff Engineer"]],meetLabel:"Google Meet",meetUrl:"https://meet.google.com/abc-defg-hij",msgs:[{f:"them",t:"Hi! Confirming Thursday 10 AM PT works for me.",w:"Tue 9:41 AM"},{f:"me",t:"Confirmed — panel of 3, Meet link attached. See you then!",w:"Tue 10:02 AM"},{f:"them",t:"Thanks! Anything to prep besides the systems deep-dive?",w:"Tue 10:15 AM"}]},
+{id:"marcus",name:"Marcus Chen",role:"Senior Frontend Engineer",initials:"MC",email:"marcus.chen@mail.com",phone:"+1 (628) 555-0119",clearance:"cleared",clearLabel:"Cleared • Trust 94",group:"upcoming",time:"Fri 2:30 PM",unread:0,intDate:"Fri, Sep 19, 2026",intTime:"2:30 – 3:30 PM PT",dur:"60 min • Panel of 2",status:"Scheduled",panel:[["L. Gomez","Engineering Manager"],["J. Wu","Senior Frontend Engineer"]],meetLabel:"Zoom",meetUrl:"https://zoom.us/j/5551234567",msgs:[{f:"them",t:"Portfolio and code samples are ready for Friday.",w:"Mon 4:20 PM"},{f:"me",t:"Great — the panel will focus on architecture and perf.",w:"Mon 5:01 PM"}]},
+{id:"priya",name:"Priya Nair",role:"Platform Engineer",initials:"PN",email:"priya.nair@mail.com",phone:"+1 (510) 555-0147",clearance:"pending",clearLabel:"Checks pending",group:"messages",time:"12:04 PM",unread:2,intDate:"Mon, Sep 22, 2026 (tentative)",intTime:"TBD — awaiting clearance",dur:"60 min • Panel of 2",status:"On hold",panel:[["R. Alvarez","Hiring Manager"],["K. Smith","SRE Lead"]],meetLabel:"Meeting link pending",meetUrl:"#",msgs:[{f:"them",t:"Hi, is my interview still on for Monday?",w:"11:32 AM"},{f:"me",t:"Almost — one background check is still processing.",w:"11:50 AM"},{f:"them",t:"Understood, please keep me posted!",w:"12:04 PM"}]},
+{id:"david",name:"David Okafor",role:"DevOps Lead",initials:"DO",email:"david.o@mail.com",phone:"+1 (312) 555-0188",clearance:"pending",clearLabel:"Checks pending",group:"upcoming",time:"Mon 11:00 AM",unread:0,intDate:"Mon, Sep 22, 2026",intTime:"11:00 AM – 12:00 PM PT",dur:"60 min • Panel of 2",status:"Tentative",panel:[["K. Smith","SRE Lead"],["R. Alvarez","Hiring Manager"]],meetLabel:"Google Meet",meetUrl:"https://meet.google.com/xyz-abcd-123",msgs:[{f:"me",t:"Invite sent for Monday 11 AM PT — panel of 2.",w:"Yesterday"}]},
+{id:"sofia",name:"Sofia Marino",role:"Backend Engineer",initials:"SM",email:"sofia.m@mail.com",phone:"+1 (212) 555-0163",clearance:"cleared",clearLabel:"Cleared • Trust 96",group:"messages",time:"Yesterday",unread:1,intDate:"Completed Wed, Sep 10",intTime:"Feedback pending",dur:"60 min • Panel of 2",status:"Done",panel:[["J. Wu","Senior Engineer"],["S. Patel","Staff Engineer"]],meetLabel:"Google Meet",meetUrl:"https://meet.google.com/pqr-stuv-456",msgs:[{f:"me",t:"Thanks for a great loop today, Sofia!",w:"Wed 3:40 PM"},{f:"them",t:"Thank you! When should I expect next steps?",w:"Yesterday"}]}
+];
+var TPLS=["Hi {n}, confirming our panel interview on {d} at {t}. The meeting link is attached — reply here if you need to reschedule.","Hi {n}, quick update: your pre-hire checks are still in progress. We will lock the loop in as soon as they clear.","Hi {n}, great speaking with you! Next step is a 45-min hiring-manager chat — does tomorrow afternoon work?"];
+var sel="elena",listFilter="all",query="",rating=0,stageFilter="any",verifFilter="all",tierFilter="any",ENTRIES=[];
+/* Demo pipeline stage / verification / clearance, replaced by the live MongoDB record when one
+   matches by name (window.HonestHire.liveCandidates, published by backend-client.js). */
+var DEMO_META={elena:{stage:4,verif:"verified",tier:5},marcus:{stage:5,verif:"verified",tier:4},priya:{stage:4,verif:"pending",tier:3},david:{stage:3,verif:"in_progress",tier:3},sofia:{stage:5,verif:"verified",tier:4}};
+CANDS.forEach(function(c){var d=DEMO_META[c.id]; if(d){c.stage=d.stage;c.verif=d.verif;c.tier=d.tier;}});
+function initialsOf(name){var p=String(name||"").trim().split(/\s+/); if(!p[0])return "--"; return (p[0].charAt(0)+(p.length>1?p[p.length-1].charAt(0):"")).toUpperCase();}
+function verifLabel(v){return v==="verified"?"Cleared • Verified":(v==="in_progress"?"Checks in progress":"Checks pending");}
+// Synthesise a row for a MongoDB candidate that has no demo schedule yet.
+function synthEntry(item){var stage=item.pipeline?item.pipeline.currentStep:null,verified=item.verificationStatus==="verified";return {id:item._id,_id:item._id,name:item.name,role:item.role,initials:initialsOf(item.name),email:"not provided",phone:"Not provided",clearance:verified?"cleared":"pending",clearLabel:verifLabel(item.verificationStatus)+" • Trust "+item.trustScore,group:"messages",time:stage?("Step "+stage+" of 5"):"No pipeline",unread:0,intDate:"No panel scheduled",intTime:"Not scheduled",dur:"Not scheduled",status:"Unscheduled",panel:[],meetLabel:"Meeting link pending",meetUrl:"#",msgs:[],verif:item.verificationStatus,tier:item.clearanceTier,stage:stage};}
+function syncLive(){
+var items=[]; try{items=(window.HonestHire&&window.HonestHire.liveCandidates)||[];}catch(e){}
+var merged=[],used={};
+CANDS.forEach(function(c){
+var match=null; for(var k=0;k<items.length;k++){if(String(items[k].name||"").toLowerCase()===String(c.name||"").toLowerCase()){match=items[k];break;}}
+var copy=Object.assign({},c);
+if(match){used[match._id]=true; copy._id=match._id; copy.verif=match.verificationStatus||copy.verif; copy.tier=match.clearanceTier||copy.tier; copy.stage=match.pipeline?match.pipeline.currentStep:copy.stage; copy.clearLabel=verifLabel(copy.verif)+" • Trust "+match.trustScore;}
+merged.push(copy);});
+items.forEach(function(item){if(!used[item._id])merged.push(synthEntry(item));});
+ENTRIES=merged;
+var note=$i("iv-filter-note"); if(note)note.textContent=items.length?(items.length+" live MongoDB record(s) linked"):"demo list — start the backend for live records";
+}
+var API_BASE=(window.HONEST_HIRE_API_BASE||"http://localhost:5000").replace(/\/+$/,"");
+function fbStatus(msg,ok){var s=$i("iv-fb-status");if(!s)return;if(!msg){s.classList.add("hidden");s.textContent="";return;}s.textContent=msg;s.classList.remove("hidden");s.setAttribute("style",ok?"color:#005236":"color:#ba1a1a");}
+async function resolveMongoId(c){try{var r=await fetch(API_BASE+"/api/candidates?q="+encodeURIComponent(c.name),{cache:"no-store"});var d=await r.json();if(!r.ok||!d.items)return null;for(var k=0;k<d.items.length;k++){if(d.items[k].name===c.name)return d.items[k]._id;}return d.items.length?d.items[0]._id:null;}catch(e){return "__offline__";}}
+async function submitFeedback(btn){var c=cand(sel);var inp=$i("iv-feedback-text");var v=(inp.value||"").trim();if(!v){fbStatus("Write feedback notes before submitting.",false);inp.focus();return;}btn.textContent="Saving…";btn.setAttribute("disabled","");fbStatus("Saving feedback for "+c.name+"…",true);var id=await resolveMongoId(c);if(id==="__offline__"){fbStatus("Backend unavailable — start MongoDB + npm start, then retry.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}if(!id){fbStatus("No linked candidate record for "+c.name+" — seed the backend.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}try{var r=await fetch(API_BASE+"/api/candidates/"+id+"/feedback",{method:"PATCH",headers:feedbackHeaders(),body:JSON.stringify({text:v})});var d=null;try{d=await r.json();}catch(e){}if(r.status===401){fbStatus("Log in with a team account to submit feedback under your name.",false);var hh=window.HonestHire||{};if(hh.openLogin)hh.openLogin();btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}if(!r.ok)throw new Error((d&&d.error)||("Request failed ("+r.status+")."));var n=(d.feedback||[]).length;btn.textContent="Feedback submitted";fbStatus("Feedback saved for "+c.name+" · "+n+" total.",true);inp.value="";setTimeout(function(){$i("iv-feedback-modal").classList.add("hidden");btn.textContent="Submit feedback";btn.removeAttribute("disabled");fbStatus("");},900);}catch(e){fbStatus(e.message||"Could not save feedback.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");}}
+function $i(id){return document.getElementById(id);}
+function feedbackHeaders(){var h={"Content-Type":"application/json"},hh=window.HonestHire; if(hh&&hh.authToken){var t=hh.authToken(); if(t)h.Authorization="Bearer "+t;} return h;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function cand(id){for(var k=0;k<ENTRIES.length;k++)if(ENTRIES[k].id===id)return ENTRIES[k];return ENTRIES[0]||CANDS[0];}
+function pillBg(c){return c.clearance==="cleared"?"background:#6ffbbe;color:#005236":"background:#ffdad6;color:#93000a";}
+function stBg(s){if(s==="Scheduled")return "background:#dbe1ff;color:#00174b";if(s==="Done")return "background:#6ffbbe;color:#005236";return "background:#ffe9c7;color:#7a4a00";}
+function nowT(){var d=new Date(),h=d.getHours(),m=("0"+d.getMinutes()).slice(-2),a=h>=12?"PM":"AM";h=h%12||12;return h+":"+m+" "+a;}
+function filtered(){var q=query.toLowerCase();return ENTRIES.filter(function(c){
+var okG=(listFilter==="all")||(c.group===listFilter);
+var okQ=!q||(c.name+" "+c.role).toLowerCase().indexOf(q)>-1;
+var okS=(stageFilter==="any")||(String(c.stage)===stageFilter);
+var okV=(verifFilter==="all")||(c.verif===verifFilter);
+var okT=(tierFilter==="any")||(Number(c.tier)>=Number(tierFilter));
+return okG&&okQ&&okS&&okV&&okT;});}
+function renderList(){var box=$i("iv-list");if(!box)return;syncLive();var list=filtered();var htm="";list.forEach(function(c){var on=c.id===sel;htm+='<button type="button" role="option" aria-selected="'+(on?"true":"false")+'" data-iv-select="'+c.id+'" class="iv-cand flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-low">'
++'<span class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-[13px] flex-shrink-0" style="background:#dbe1ff;color:#00174b">'+c.initials+'</span>'
++'<span class="flex flex-col min-w-0 flex-1"><span class="flex items-center gap-1.5"><span class="font-label-md text-label-md text-primary font-semibold truncate">'+esc(c.name)+'</span>'+(c.unread?'<span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ba1a1a" title="'+c.unread+' unread"></span>':"")+'</span>'
++'<span class="font-body-sm text-body-sm text-on-surface-variant truncate">'+esc(c.role)+'</span>'
++'<span class="flex items-center gap-1.5 mt-0.5"><span class="px-1.5 py-px rounded font-label-sm text-label-sm" style="'+pillBg(c)+'font-size:10px">'+(c.clearance==="cleared"?"Cleared":"Pending")+'</span><span class="font-body-sm text-body-sm text-on-surface-variant" style="font-size:11px">'+esc(c.time)+'</span></span></span>'
++'<span class="material-symbols-outlined text-[18px] text-on-surface-variant flex-shrink-0">chevron_right</span></button>';});
+box.innerHTML=htm;$i("iv-count").textContent=list.length;
+$i("iv-list-empty").classList.toggle("hidden",list.length!==0);
+var tot=ENTRIES.reduce(function(a,c){return a+c.unread;},0);var pill=$i("iv-unread-pill");if(pill){pill.textContent=tot?tot+" unread":"All caught up";}}
+function renderDetail(){var c=cand(sel);$i("iv-avatar").textContent=c.initials;$i("iv-name").textContent=c.name;$i("iv-role").textContent=c.role;$i("iv-email").textContent=c.email;$i("iv-phone").textContent=c.phone;
+var b=$i("iv-clear-badge");b.setAttribute("style",pillBg(c));$i("iv-clear-text").textContent=c.clearLabel;
+var bn=$i("iv-banner"),pend=c.clearance!=="cleared";bn.classList.toggle("hidden",!pend);bn.classList.toggle("flex",pend);
+$i("iv-int-date").textContent=c.intDate.length>16?c.intDate.slice(0,16):c.intDate;$i("iv-int-time").textContent=c.intTime;$i("iv-int-dur").textContent=c.dur;
+var st=$i("iv-int-status");st.textContent=c.status;st.setAttribute("style",stBg(c.status)+"");
+var ph="";c.panel.forEach(function(p){ph+='<div class="flex items-center gap-2.5 p-2 rounded-lg bg-surface-container-low"><span class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[16px]">person</span></span><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-primary font-semibold truncate">'+esc(p[0])+'</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">'+esc(p[1])+'</span></div></div>';});
+$i("iv-interviewers").innerHTML=ph;
+$i("iv-meet-label").textContent=c.meetLabel;var ml=$i("iv-meet-link");ml.setAttribute("href",c.meetUrl);ml.textContent=c.meetUrl==="#"?"Link issued after clearance":c.meetUrl.replace("https://","");
+$i("iv-fb-who").textContent="For "+c.name+" — "+c.intDate;renderThread();}
+function renderThread(){var c=cand(sel);var th=$i("iv-thread");var htm="";c.msgs.forEach(function(m){htm+='<div class="msg '+(m.f==="me"?"msg-out":"msg-in")+'">'+esc(m.t)+'<span class="msg-time">'+esc(m.w)+'</span></div>';});
+th.innerHTML=htm;th.scrollTop=th.scrollHeight;$i("iv-thread-count").textContent=c.msgs.length+(c.msgs.length===1?" message":" messages");}
+function selectInterview(id){if(!cand(id))return;sel=id;renderList();renderDetail();}
+function fillTpl(i){var c=cand(sel);var s=TPLS[i].replace("{n}",c.name.split(" ")[0]).replace("{d}",c.intDate).replace("{t}",c.intTime);var inp=$i("iv-input");inp.value=s;inp.focus();}
+function sendMsg(){var inp=$i("iv-input");var v=inp.value.trim();if(!v)return;var c=cand(sel);c.unread=0;c.msgs.push({f:"me",t:v,w:nowT()});inp.value="";if(c.group!=="upcoming"&&c.group!=="messages")c.group="messages";renderList();renderThread();
+setTimeout(function(){c.msgs.push({f:"them",t:"Thanks for the update — noted!",w:nowT()});if(document.getElementById("iv-thread")&&sel===c.id)renderThread();renderList();},1200);}
+document.addEventListener("click",function(ev){
+var s=ev.target.closest&&ev.target.closest("[data-iv-select]");if(s){selectInterview(s.getAttribute("data-iv-select"));return;}
+var f=ev.target.closest&&ev.target.closest("[data-iv-list-filter]");if(f){ev.preventDefault();listFilter=f.getAttribute("data-iv-list-filter");Array.prototype.forEach.call(document.querySelectorAll("[data-iv-list-filter]"),function(b){b.setAttribute("aria-pressed",b===f?"true":"false");});renderList();return;}
+var tp=ev.target.closest&&ev.target.closest("[data-iv-template]");if(tp){fillTpl(parseInt(tp.getAttribute("data-iv-template"),10));return;}
+var a=ev.target.closest&&ev.target.closest("[data-action]");if(!a)return;var k=a.getAttribute("data-action");
+if(k==="send-iv-msg"){sendMsg();return;}
+if(k==="iv-reset"){stageFilter="any";verifFilter="all";tierFilter="any";query="";listFilter="all";var rq=$i("iv-search");if(rq)rq.value="";var rs=$i("iv-stage");if(rs)rs.value="any";var rv=$i("iv-verification");if(rv)rv.value="all";var rt=$i("iv-tier");if(rt)rt.value="any";renderList();return;}
+if(k==="open-feedback"){var m=$i("iv-feedback-modal");m.classList.remove("hidden");return;}
+if(k==="close-feedback"){$i("iv-feedback-modal").classList.add("hidden");return;}
+if(k==="submit-feedback"){submitFeedback($i("iv-fb-submit"));return;}
+if(k==="copy-meet"){var url=cand(sel).meetUrl;function done(){var sp=a.querySelector("span:last-child");if(!sp)return;var old=sp.textContent;sp.textContent="Copied";setTimeout(function(){sp.textContent=old;},1200);}
+if(navigator.clipboard&&navigator.clipboard.writeText&&url!=="#"){navigator.clipboard.writeText(url).then(done,done);}else{done();}return;}
+if(k==="join-meet"){var u=cand(sel).meetUrl;if(u&&u!=="#")window.open(u,"_blank");return;}});
+document.addEventListener("DOMContentLoaded",function(){renderList();renderDetail();
+var si=$i("iv-search");if(si){si.addEventListener("input",function(){query=si.value;renderList();});}
+var sd=$i("iv-stage");if(sd){sd.addEventListener("change",function(){stageFilter=sd.value;renderList();});}
+var vd=$i("iv-verification");if(vd){vd.addEventListener("change",function(){verifFilter=vd.value;renderList();});}
+var td=$i("iv-tier");if(td){td.addEventListener("change",function(){tierFilter=td.value;renderList();});}
+var ii=$i("iv-input");if(ii){ii.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();sendMsg();}});}
+try{if(window.HonestHire){window.HonestHire.selectInterviewCandidate=selectInterview;window.HonestHire.interviewCandidates=CANDS;window.HonestHire.refreshInterviews=function(){renderList();renderDetail();};}}catch(e){}
+window.selectInterviewCandidate=selectInterview;});
+})();
+/* Auth: real team sessions via POST /api/auth/login. The opaque bearer token is kept in
+localStorage ("hh-token") and sent with feedback, uploads and other writes, so every entry is
+attributable to the signed-in member. While logged out the gate hides all hiring data. */
+(function(){
+"use strict";
+function G(id){return document.getElementById(id);}
+var TOKEN_KEY="hh-token", USER_KEY="hh-user", API_BASE=(window.HONEST_HIRE_API_BASE||"http://localhost:5000").replace(/\/+$/,"");
+var logged=false, me=null, busy=false;
+function store(key,value){try{if(value===null){localStorage.removeItem(key);}else{localStorage.setItem(key,value);}}catch(e){}}
+function read(key){try{return localStorage.getItem(key);}catch(e){return null;}}
+function authToken(){return read(TOKEN_KEY)||"";}
+function authHeaders(extra){var h=extra||{}; if(authToken())h.Authorization="Bearer "+authToken(); return h;}
+function remember(data){me=data&&data.user?data.user:null; logged=!!(data&&data.token&&me); store(TOKEN_KEY,logged?data.token:null); store(USER_KEY,me?JSON.stringify(me):null); if(!logged)me=null;}
+function toast(m){var t=G("auth-toast"); if(!t)return; t.textContent=m; t.classList.remove("hidden"); setTimeout(function(){t.classList.add("hidden");},2200);}
+function menu(open){var m=G("auth-menu"),b=G("auth-avatar-btn"); if(!m)return; m.classList.toggle("auth-hidden",!open); if(b)b.setAttribute("aria-expanded",open?"true":"false");}
+function render(){
+var li=G("auth-login-btn"),lo=G("auth-logout-btn"),av=G("auth-avatar-btn"),nt=G("auth-notif-btn"),gate=G("auth-gate"),pan=G("tab-panels"),nav=G("app-nav");
+if(li){li.classList.toggle("hidden",logged); li.classList.toggle("inline-flex",!logged);}
+if(lo){lo.classList.toggle("hidden",!logged); lo.classList.toggle("inline-flex",logged);}
+if(av)av.classList.toggle("hidden",!logged);
+if(nt)nt.classList.toggle("hidden",!logged);
+if(!logged)menu(false);
+if(gate){gate.classList.toggle("auth-hidden",logged); gate.style.display=logged?"none":"flex";}
+if(pan)pan.style.display=logged?"":"none";
+if(nav)nav.style.display=logged?"":"none";
+   var roleVisibility={admin:["candidates","checks","interviews","pipeline","admin","audit"],recruiter:["candidates","checks","interviews","pipeline"],interviewer:["candidates","checks","interviews","pipeline"],candidate:["portal"]};
+   var role=(logged&&me&&me.role)||"";
+   var visibleTabs=roleVisibility[role]||[];
+   ["candidates","checks","interviews","pipeline","admin","audit","portal"].forEach(function(tab){var link=document.querySelector('#app-nav a[data-tab="'+tab+'"]'); if(link)link.style.display=(logged&&visibleTabs.indexOf(tab)>-1)?"":"none";});
+   var roleLabels={admin:{candidates:"All Candidates"},employee:{candidates:"Candidates Feed"},candidate:{}};
+try{var labelMap=roleLabels[role]||{},candLink=document.querySelector('#app-nav a[data-tab="candidates"]'),candSpan=candLink&&candLink.querySelector("span.font-label-sm"); if(candSpan)candSpan.textContent=labelMap.candidates||"Candidates";}catch(e){}
+   try{var current=(location.hash||"").replace(/^#\/?/,""); if(logged&&current&&visibleTabs.indexOf(current)<0&&window.HonestHire&&window.HonestHire.setActiveTab){window.HonestHire.setActiveTab(role==="candidate"?"portal":(role==="admin"?"admin":"candidates"));}}catch(e){}
+try{document.body.classList.toggle("logged-out",!logged);}catch(e){}
+paintUser();
+}
+function esc(s){return String(s===undefined||s===null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function initials(name){var parts=String(name||"").trim().split(/\s+/); if(!parts[0])return "--"; return (parts[0].charAt(0)+(parts.length>1?parts[parts.length-1].charAt(0):"")).toUpperCase();}
+function paintUser(){
+var n=G("auth-menu-name"); if(n)n.textContent=me?me.name:"Not signed in";
+var e=G("auth-menu-email"); if(e)e.textContent=me?(me.email+" · "+(me.role||"team")):"Team account";
+var i=G("auth-menu-initials"); if(i)i.textContent=me?initials(me.name):"--";
+var who=G("iv-fb-author-name"); if(who)who.textContent=me?(me.name+" ("+(me.role||"team")+")"):"not signed in";
+}
+async function api(path,options){
+var s=options||{};
+var init={cache:"no-store",headers:authHeaders(s.headers||{})};
+if(s.method)init.method=s.method;
+if(s.body!==undefined)init.body=s.body;
+var r=await fetch(API_BASE+path,init);
+var d=null; try{d=await r.json();}catch(e){}
+if(!r.ok)throw new Error((d&&d.error)||("Request failed ("+r.status+")."));
+return d;
+}
+// Role selector: each tab auto-fills its demo account and pins the session to that role,
+// so signing in always lands on the matching view (Admin/Employer/Candidate).
+var ROLE_TABS={admin:{label:"Admin",email:"admin@honesthire.app",password:"",secret:true,roles:["admin"],tab:"admin"},employee:{label:"Employer",email:"recruiter@honesthire.app",password:"hire1234",roles:["recruiter","interviewer"],tab:"candidates"},candidate:{label:"Candidate",email:"candidate@honesthire.app",password:"candidate1234",roles:["candidate"],tab:"portal"}};
+var selectedRole="";
+function roleTabFor(role){if(role==="admin")return "admin"; if(role==="candidate")return "candidate"; if(role==="recruiter"||role==="interviewer")return "employee"; return "";}
+// Admin is a hidden role: the tab ships hidden (data-role-hidden) and the role can only be
+// armed by opening the app on the direct admin route (#admin or #/admin), so the login modal
+// offers only Employer and Candidate while the dashboard stays reachable after admin sign-in.
+var ADMIN_ROUTE=/#\/?admin(?:$|[\/?#])/i;
+function directAdminRoute(){try{if(ADMIN_ROUTE.test(String(location.hash||"")))return true; return /\/admin\/?$/i.test(String(location.pathname||""));}catch(e){return false;}}
+function paintRoleTabs(){var on="auth-role-tab px-2 py-2 rounded-lg font-label-sm text-label-sm font-semibold bg-secondary-container text-on-secondary-container",off="auth-role-tab px-2 py-2 rounded-lg font-label-sm text-label-sm bg-surface-container text-primary"; try{Array.prototype.slice.call(document.querySelectorAll("[data-role-tab]")).forEach(function(b){ if(b.hasAttribute("data-role-hidden")){b.className="hidden auth-hidden"; b.setAttribute("aria-hidden","true"); b.setAttribute("tabindex","-1"); b.setAttribute("aria-pressed","false"); return;} var active=b.getAttribute("data-role-tab")===selectedRole; b.className=active?on:off; b.setAttribute("aria-pressed",active?"true":"false");});}catch(e){} var h=G("auth-role-hint"),acct=ROLE_TABS[selectedRole]; if(h)h.textContent=acct?(acct.secret?("Admin account: "+acct.email+" - enter your password plus the security key."):(acct.password?("Demo account: "+acct.email+" / "+acct.password):"Pick a role to load its demo account.")):"Pick a role to load its demo account.";}
+function selectRole(key,fill){ if(key==="admin"&&!directAdminRoute())return; var acct=ROLE_TABS[key]; if(!acct)return; selectedRole=key; var e=G("auth-email"),p=G("auth-pass"),kf=G("auth-admin-key-field"),k=G("auth-admin-key"); var admin=!!acct.secret; if(kf){kf.classList.toggle("hidden",!admin); if(k&&!admin)k.value="";} if(admin){ if(e)e.value=acct.email; if(p)p.value=""; } else if(fill!==false){ if(e)e.value=acct.email; if(p)p.value=acct.password; } var er=G("auth-err"); if(er)er.classList.add("hidden"); paintRoleTabs(); if(admin&&p)setTimeout(function(){p.focus();},50);}
+function openLogin(){var m=G("auth-modal"); if(m)m.classList.remove("hidden"); if(selectedRole==="admin"&&!directAdminRoute())selectedRole=""; if(!selectedRole)selectRole("employee"); else paintRoleTabs(); var e=G("auth-email"); if(e)setTimeout(function(){e.focus();},50);}
+function closeLogin(){var m=G("auth-modal"); if(m)m.classList.add("hidden"); var e=G("auth-err"); if(e)e.classList.add("hidden");}
+var SETTINGS_KEY="hh-settings";
+function readSettings(){var d={theme:"system",offers:true,interviews:true,digest:false}; try{var raw=localStorage.getItem(SETTINGS_KEY); if(!raw)return d; var p=JSON.parse(raw); if(p&&typeof p==="object"){if(p.theme==="light"||p.theme==="dark"||p.theme==="system")d.theme=p.theme; if(typeof p.offers==="boolean")d.offers=p.offers; if(typeof p.interviews==="boolean")d.interviews=p.interviews; if(typeof p.digest==="boolean")d.digest=p.digest;}}catch(e){} return d;}
+function applyTheme(theme){try{var dark=theme==="dark"||(theme==="system"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches); document.documentElement.classList.toggle("dark",!!dark);}catch(e){}}
+function paintSettings(){var s=readSettings(); applyTheme(s.theme); var t=G("settings-theme-"+s.theme); if(t)t.checked=true; var o=G("settings-notif-offers"); if(o)o.checked=s.offers; var v=G("settings-notif-interviews"); if(v)v.checked=s.interviews; var g=G("settings-notif-digest"); if(g)g.checked=s.digest;}
+function openSettings(){closeLogin(); paintSettings(); var m=G("settings-modal"); if(m)m.classList.remove("hidden"); var c=G("settings-close-btn"); if(c)setTimeout(function(){c.focus();},50);}
+function closeSettings(){var m=G("settings-modal"); if(m)m.classList.add("hidden");}
+function saveSettings(){var checked=function(id){var el=G(id); return el?!!el.checked:false;}; var theme="system"; var names=["light","dark","system"]; for(var i=0;i<names.length;i++){var r=G("settings-theme-"+names[i]); if(r&&r.checked){theme=names[i]; break;}} try{localStorage.setItem(SETTINGS_KEY,JSON.stringify({theme:theme,offers:checked("settings-notif-offers"),interviews:checked("settings-notif-interviews"),digest:checked("settings-notif-digest")}));}catch(e){} applyTheme(theme); closeSettings(); toast("Settings saved.");}
+async function submit(){
+if(busy)return;
+var e=G("auth-email"),p=G("auth-pass"),er=G("auth-err"),btn=G("auth-submit-btn");
+var email=e?(e.value||"").trim():"", pass=p?p.value:"";
+if(!email||!pass){if(er){er.classList.remove("hidden"); er.textContent="Enter your work email and password.";} return;}var adminKeyInput=G("auth-admin-key"); var adminKey=selectedRole==="admin"&&adminKeyInput?(adminKeyInput.value||"").trim():""; if(selectedRole==="admin"&&!adminKey){if(er){er.classList.remove("hidden"); er.textContent="Enter the admin security key.";} if(adminKeyInput)adminKeyInput.focus(); return;}
+busy=true; if(btn){btn.textContent="Signing in…"; btn.setAttribute("disabled","");}
+if(er)er.classList.add("hidden");
+try{
+var payload={email:email,password:pass}; if(selectedRole==="admin")payload.adminKey=adminKey;
+var data=await api("/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+var signedRole=data&&data.user?data.user.role:""; var picked=ROLE_TABS[selectedRole]; if(picked&&picked.roles.indexOf(signedRole)<0){try{await fetch(API_BASE+"/api/auth/logout",{method:"POST",headers:{"Authorization":"Bearer "+((data&&data.token)||"")}});}catch(ig){} remember(null); render(); if(er){er.classList.remove("hidden"); er.textContent="That is a "+signedRole+" account, not "+picked.label+". Pick the "+picked.label+" tab or its demo account below.";} return;} remember(data); closeLogin(); render();
+toast("Signed in as "+(data&&data.user?data.user.name:"team member")+" - "+((data&&data.user?data.user.role:"team")||"team")+" view."); try{if(window.HonestHire&&window.HonestHire.setActiveTab)window.HonestHire.setActiveTab(picked&&picked.tab?picked.tab:(signedRole==="candidate"?"portal":(signedRole==="admin"?"admin":"candidates")));}catch(ig){}
+if(p)p.value="";
+// Feedback, uploads and pipeline writes are attributed to this member from now on.
+try{if(window.HonestHire&&window.HonestHire.reloadFeed)window.HonestHire.reloadFeed();}catch(ignored){}
+}catch(error){
+if(er){er.classList.remove("hidden"); er.textContent=(selectedRole==="admin"&&error.message==="Invalid email or password.")?"Invalid Admin Credentials or Passcode":(error.message||"Could not log in.");} if(selectedRole==="admin"&&adminKeyInput){adminKeyInput.value=""; adminKeyInput.focus();}
+}finally{busy=false; if(btn){btn.textContent="Log in"; btn.removeAttribute("disabled");}}
+}
+async function logout(){
+var hadToken=!!authToken();
+remember(null); render();
+toast("Logged out - hiring data is hidden until you sign back in.");
+if(!hadToken)return;
+try{await api("/api/auth/logout",{method:"POST"});}catch(error){/* token already gone: stay logged out */}
+}
+document.addEventListener("click",function(ev){
+var t=ev.target;
+var rt=t.closest&&t.closest("[data-role-tab]"); if(rt){ if(rt.hasAttribute("data-role-hidden"))return; selectRole(rt.getAttribute("data-role-tab")); return;} var av=t.closest&&t.closest("#auth-avatar-btn");
+if(av){var m=G("auth-menu"); menu(m&&m.classList.contains("auth-hidden")); return;}
+var men=t.closest&&t.closest("#auth-menu");
+if(!men){var mo=G("auth-menu"); if(mo&&!mo.classList.contains("auth-hidden"))menu(false);}
+var a=t.closest&&t.closest("[data-action]"); if(!a)return;
+var k=a.getAttribute("data-action");
+if(k==="auth-open-login"){openLogin(); return;}
+if(k==="auth-close-login"){closeLogin(); return;}
+if(k==="auth-submit"){submit(); return;}
+if(k==="auth-logout"){logout(); return;}
+if(k==="auth-profile"){menu(false); toast(me?("Profile: "+me.name+" - "+me.email+" · "+(me.role||"team")):"Log in to see your profile."); return;}
+if(k==="auth-settings"){menu(false); openSettings(); return;}
+if(k==="auth-settings-close"){closeSettings(); return;}
+if(k==="auth-settings-save"){saveSettings(); return;}
+});
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape"){closeLogin(); closeSettings(); menu(false);}
+var m=G("auth-modal");
+if(m&&!m.classList.contains("hidden")&&e.key==="Enter"){var ae=document.activeElement; if(ae&&(ae.id==="auth-email"||ae.id==="auth-pass"))submit();}
+});
+document.addEventListener("DOMContentLoaded",function(){
+render(); paintSettings(); selectRole("employee");
+// Direct admin access: the hidden Admin role is armed only on the direct admin route
+// (#admin / #/admin) while logged out; leaving the route falls back to Employer.
+if(directAdminRoute()&&!logged){selectRole("admin",false); openLogin();}
+window.addEventListener("hashchange",function(){ if(directAdminRoute()){ if(!logged){selectRole("admin",false); openLogin();} } else if(!logged&&selectedRole==="admin"){selectRole("employee");} });
+try{if(window.matchMedia)window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",function(){applyTheme(readSettings().theme);});}catch(e){}
+try{if(window.HonestHire){window.HonestHire.openLogin=openLogin; window.HonestHire.authToken=authToken; window.HonestHire.authHeaders=authHeaders; window.HonestHire.currentUser=function(){return me;}; window.HonestHire.authLogin=function(data){remember(data); render();}; window.HonestHire.authLogout=logout; window.HonestHire.isLoggedIn=function(){return logged;};}}catch(e){}
+window.hhLogin=function(){logged=true;render();}; window.hhLogout=logout;
+// Restore a stored session: the server decides whether the token is still valid.
+var saved=read(USER_KEY), bearer=authToken();
+if(saved){try{me=JSON.parse(saved);}catch(e){me=null;}}
+if(!bearer){remember(null); render(); return;}
+api("/api/auth/me").then(function(data){
+remember({token:bearer,user:data.user}); render();
+}).catch(function(){
+remember(null); render(); toast("Session expired - log in again.");
+});
+});
+})();
+
+window.HonestHire={setActiveTab:setActiveTab,applyFilter:applyFilter,getActiveTab:function(){return ACTIVE;},tabs:Object.keys(TAB_META)};
+})();
+</script></main><nav id="app-nav" role="navigation" aria-label="Primary" class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-secondary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a id="nav-candidates" data-tab="candidates" href="#/candidates" class="flex flex-col items-center justify-center min-w-[64px] h-12 transition-colors gap-0.5 text-on-surface-variant"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]">verified_user</span><span class="font-label-sm text-label-sm">Candidates</span></a><a id="nav-checks" data-tab="checks" href="#/checks" aria-current="page" class="tab-active flex flex-col items-center justify-center min-w-[64px] h-12 hover:text-primary transition-colors gap-0.5 text-secondary font-semibold"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">fact_check</span><span class="font-label-sm text-label-sm">Checks</span></a><a id="nav-interviews" data-tab="interviews" href="#/interviews" class="flex flex-col items-center justify-center min-w-[64px] h-12 text-on-surface-variant hover:text-primary transition-colors gap-0.5"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]">forum</span><span class="font-label-sm text-label-sm">Interviews</span></a><a id="nav-pipeline" data-tab="pipeline" href="#/pipeline" class="flex flex-col items-center justify-center min-w-[64px] h-12 text-on-surface-variant hover:text-primary transition-colors gap-0.5"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]">badge</span><span class="font-label-sm text-label-sm">Pipeline</span></a><a id="nav-admin" data-tab="admin" href="#/admin" class="flex flex-col items-center justify-center min-w-[64px] h-12 text-on-surface-variant hover:text-primary transition-colors gap-0.5" style="display:none"><span class="material-symbols-outlined text-[22px]">admin_panel_settings</span><span class="font-label-sm text-label-sm">Admin</span></a><a id="nav-audit" data-tab="audit" href="#/audit" style="display:none" class="flex flex-col items-center justify-center min-w-[64px] h-12 text-on-surface-variant hover:text-primary transition-colors gap-0.5"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]">history</span><span class="font-label-sm text-label-sm">Audit Logs</span></a><a id="nav-portal" data-tab="portal" href="#/portal" style="display:none" class="flex flex-col items-center justify-center min-w-[64px] h-12 text-on-surface-variant hover:text-primary transition-colors gap-0.5"><span class="tab-indicator" aria-hidden="true"></span><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">My Application</span></a></div></nav>
+
+<script src="backend-client.js"></script><script src="admin-client.js"></script><script src="portal-client.js"></script></body></html>

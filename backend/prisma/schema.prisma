@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String      @id @default(cuid())
+  email      String      @unique
+  name       String
+  role       String      @default("RECRUITER")
+  createdAt  DateTime    @default(now())
+  candidates Candidate[]
+  interviews Interview[]
+}
+
+model Candidate {
+  id             String      @id @default(cuid())
+  name           String
+  email          String      @unique
+  role           String
+  requisition    String      @default("REQ-4091")
+  skills         String      @default("")
+  summary        String      @default("")
+  trustScore     Int         @default(0)
+  tier           Int         @default(1)
+  checksProgress Int         @default(0)
+  recruiterId    String?
+  recruiter      User?       @relation(fields: [recruiterId], references: [id], onDelete: SetNull)
+  pipeline       Pipeline?
+  interviews     Interview[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model PipelineStage {
+  id        String     @id
+  name      String
+  position  Int        @unique
+  pipelines Pipeline[]
+}
+
+model Pipeline {
+  id          String        @id @default(cuid())
+  candidateId String        @unique
+  candidate   Candidate     @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  stageId     String
+  stage       PipelineStage @relation(fields: [stageId], references: [id])
+  version     Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Interview {
+  id            String    @id @default(cuid())
+  candidateId   String
+  candidate     Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  interviewerId String?
+  interviewer   User?     @relation(fields: [interviewerId], references: [id], onDelete: SetNull)
+  scheduledAt   DateTime
+  duration      Int       @default(60)
+  status        String    @default("SCHEDULED")
+  meetingUrl    String?
+  feedback      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
