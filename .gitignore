@@ -32,3 +32,10 @@ Thumbs.db
 # Temp / local tooling
 .kilo/
 tmp-ids.js
+  
+# Local backups / iterations - do not push  
+code.backup*.html  
+code.html  
+index.backup*.html  
+screen.png  
+.chimera-setup.md  
