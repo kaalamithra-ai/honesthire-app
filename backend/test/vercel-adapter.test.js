@@ -113,3 +113,19 @@ test('static entry points sit at the project root so Vercel serves them without 
   const cfg = JSON.parse(fs.readFileSync(path.join(root, "vercel.json"), "utf8"));
   assert.ok(cfg.rewrites.every(r => r.source.startsWith("/api/")), "only /api may be rewritten to the function.");
 });
+
+test('api/ping.js is a standalone liveness function served from the filesystem', () => {
+  const file = path.join(root, "api/ping.js");
+  assert.ok(fs.existsSync(file), "api/ping.js must exist as a real serverless file.");
+  const src = fs.readFileSync(file, "utf8");
+  // Vercel serves the filesystem before applying rewrites, so /api/ping resolves to this file
+  // directly and never depends on the /api/(.*) rewrite or the heavier adapter.
+  assert.ok(src.includes("module.exports = function ping"), "it must export a request handler.");
+  // It must stay dependency-free: no database handle, so liveness survives a broken build or an
+  // unreachable cluster instead of failing at module load.
+  assert.equal(src.includes("mongoose"), false, "the liveness probe must not load mongoose.");
+  assert.equal(src.includes("express"), false, "the liveness probe must not load express.");
+  assert.equal(/require\(/.test(src), false, "the liveness probe must not require anything.");
+  assert.ok(src.includes("res.statusCode = 200"), "it must answer 200 on a raw Node response.");
+  assert.equal(/res\.status\(/.test(src), false, "res.status() does not exist on a raw Node response.");
+});
