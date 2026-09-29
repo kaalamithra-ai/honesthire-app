@@ -18,9 +18,24 @@ test('the adapter exports a request handler instead of listening on a port', () 
 test('the adapter reuses one Express app and one Mongo connection per warm instance', () => {
   const src = fs.readFileSync(path.join(root, "api/index.js"), "utf8");
   assert.ok(src.includes("if (!app)"), "the app must be created once and reused.");
-  assert.ok(src.includes("if (connecting) await connecting"), "it must await the shared connection.");
+  // The connection must be awaited on EVERY invocation. An "if (connecting)" guard is skipped on a
+  // cold start (where nothing has connected yet), which let the request reach Express before Mongo
+  // was ready and made the first request of every cold start fail.
+  assert.ok(src.includes("await getConnection()"), "the handler must always await the shared connection.");
+  assert.equal(/if \(connecting\)/.test(src), false, "the connection await must not be conditional.");
   // A failed connection must be retryable rather than replaying a rejected promise.
-  assert.ok(src.includes("connecting = null"), "a failed connection must be cleared so the next call retries.");
+  assert.ok(src.includes("cached.promise = null"), "a failed connection must be cleared so the next call retries.");
+  assert.ok(src.includes("if (!cached.promise)"), "a new attempt must be started only when none is cached.");
+});
+
+test('the connection fails fast instead of hanging until the platform timeout', () => {
+  const src = fs.readFileSync(path.join(root, "api/index.js"), "utf8");
+  // bufferCommands:false stops Mongoose parking queries in an internal buffer while the driver
+  // handshakes, which is what turned an unreachable cluster into a 504 rather than an error.
+  assert.ok(src.includes("bufferCommands: false"), "connect options must disable Mongoose's command buffer.");
+  assert.ok(src.includes("serverSelectionTimeoutMS: 5000"), "the connect must give up after 5 seconds.");
+  // A rejection must surface as a 503 rather than the raw driver error.
+  assert.ok(src.includes("Database is unavailable."), "an unreachable database must return 503.");
 });
 
 test('the adapter does not leak the database error to the client', () => {
