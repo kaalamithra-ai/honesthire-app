@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('node:path');
 const { HttpError } = require('./validation');
+const { apiBaseUrl } = require('./config');
 const createRoutes = require('./mongo-routes');
 const createAuthRoutes = require('./auth-routes');
 const createPortalRoutes = require('./portal-routes');
@@ -33,6 +34,13 @@ function createApp(db = require('./db').mongoose) {
   app.use('/api', (req, res) => res.status(404).json({ error: 'API route not found.' }));
   // Serve only public entry points, never the backend directory or database.
   const root = path.resolve(__dirname, '../..');
+  // Inject the server's API base URL so the static page never hardcodes a host. The frontend has no
+  // build step, so process.env is unavailable in the browser; this is the runtime equivalent.
+  app.get('/config.js', (req, res) => {
+    res.type('application/javascript');
+    res.set('Cache-Control', 'no-store');
+    res.send('window.HONEST_HIRE_API_BASE = ' + JSON.stringify(apiBaseUrl) + ';');
+  });
   app.get(['/', '/index.html'], (req, res) => res.sendFile(path.join(root, 'index.html')));
   app.get('/backend-client.js', (req, res) => res.sendFile(path.join(root, 'backend-client.js')));
   app.get('/admin-client.js', (req, res) => res.sendFile(path.join(root, 'admin-client.js')));
