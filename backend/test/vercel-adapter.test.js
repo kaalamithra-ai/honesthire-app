@@ -85,3 +85,31 @@ test('the readiness check still reports the real database state', () => {
   assert.ok(health.includes("503"), "/api/health must still return 503 when Mongo is unavailable.");
   assert.ok(app.indexOf("app.get('/api/ping'") < app.indexOf("app.get('/api/health'"), "the liveness route must be registered first.");
 });
+
+test('the function can resolve its dependencies from a clean checkout', () => {
+  // api/index.js requires ../backend/src/*, so Node resolves express/mongoose starting from
+  // backend/src and walking UP the tree. A root node_modules therefore satisfies those requires;
+  // dependencies installed only in api/ are NOT visible to backend/src and the function fails to
+  // boot, which surfaces as a 504 on every /api route.
+  const rootPkgJson = fs.readFileSync(path.join(root, "package.json"), "utf8");
+  assert.ok(fs.existsSync(path.join(root, "package.json")), "a root package.json must exist for the build.");
+  const pkg = JSON.parse(rootPkgJson);
+  for (const dep of ["express", "mongoose", "cors"]) {
+    assert.ok(pkg.dependencies && pkg.dependencies[dep], "the root package.json must declare " + dep + ".");
+  }
+  // The versions must track backend/package.json so local and hosted runs match.
+  const backendPkg = JSON.parse(fs.readFileSync(path.join(root, "backend/package.json"), "utf8"));
+  for (const [name, range] of Object.entries(pkg.dependencies)) {
+    assert.equal(range, backendPkg.dependencies[name], "dependency " + name + " must match backend/package.json.");
+  }
+  assert.ok(pkg.engines && pkg.engines.node, "the Node runtime must be declared for Vercel.");
+});
+
+test('static entry points sit at the project root so Vercel serves them without Node', () => {
+  for (const file of ["index.html", "backend-client.js", "admin-client.js", "portal-client.js"]) {
+    assert.ok(fs.existsSync(path.join(root, file)), file + " must sit at the project root.");
+  }
+  // The /api rewrite is the only route into the function, so root paths never reach it.
+  const cfg = JSON.parse(fs.readFileSync(path.join(root, "vercel.json"), "utf8"));
+  assert.ok(cfg.rewrites.every(r => r.source.startsWith("/api/")), "only /api may be rewritten to the function.");
+});
