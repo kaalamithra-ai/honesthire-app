@@ -29,15 +29,19 @@ test('the adapter does not leak the database error to the client', () => {
   assert.equal(/res\.status\(503\)\.json\(\{ error: error\.message/.test(src), false, "it must not echo the raw driver error.");
 });
 
-test('vercel.json routes /api to the adapter and leaves static files alone', () => {
+test('vercel.json routes only /api to the adapter and never rewrites static paths', () => {
   const cfg = JSON.parse(fs.readFileSync(path.join(root, "vercel.json"), "utf8"));
   const api = cfg.rewrites.find(r => r.source === "/api/(.*)");
   assert.ok(api, "/api/(.*) must be rewritten to the function.");
   assert.equal(api.destination, "/api/index", "the rewrite must point at api/index.");
   // The legacy builds entry pointed at server.js, which cannot run as a function.
   assert.equal(cfg.builds, undefined, "the legacy builds block must be gone.");
-  // Static assets must not be captured by the API rewrite.
-  const fallback = cfg.rewrites.find(r => r.source !== "/api/(.*)");
-  assert.ok(fallback, "a catch-all rewrite must exist for static files.");
-  assert.ok(fallback.destination === "/$1", "the catch-all must pass the path through.");
+
+  // A catch-all that rewrites a path to itself ("/((?!api/).*)" -> "/$1") makes Vercel resolve a
+  // static asset against the rewrite rules forever, so every non-API request hangs until the
+  // 300s function timeout. Static files must be served from the filesystem instead, which means
+  // the only rewrite allowed is the /api one.
+  assert.equal(cfg.rewrites.length, 1, "vercel.json must contain exactly one rewrite (the /api route).");
+  const selfReferential = cfg.rewrites.filter(r => r.destination === r.source || /^\/\$1$/.test(r.destination));
+  assert.deepEqual(selfReferential, [], "no rewrite may map a path back onto itself (/$1 loops).");
 });
