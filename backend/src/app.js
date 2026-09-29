@@ -17,6 +17,9 @@ function createApp(db = require('./db').mongoose) {
     done(origin && !origins.includes(origin) ? new HttpError(403, 'Origin not allowed.') : null, true);
   } }));
   app.use(express.json({ limit: '32kb' }));
+  // Liveness probe: no database involved, so it answers immediately even when Mongo is down.
+  // Registered ahead of the readiness check below and of the API routers.
+  app.get('/api/ping', (req, res) => res.status(200).json({ status: 'ok' }));
   app.get('/api/health', async (req, res, next) => {
     try {
       if (db.connection.readyState !== 1) throw new Error('Not connected');

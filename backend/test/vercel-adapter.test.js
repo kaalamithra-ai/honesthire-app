@@ -60,3 +60,28 @@ test('vercel.json routes only /api to the adapter and never rewrites static path
   const selfReferential = cfg.rewrites.filter(r => r.destination === r.source || /^\/\$1$/.test(r.destination));
   assert.deepEqual(selfReferential, [], "no rewrite may map a path back onto itself (/$1 loops).");
 });
+
+test('the liveness probe is answered before any database work', () => {
+  const src = fs.readFileSync(path.join(root, "api/index.js"), "utf8");
+  assert.ok(src.includes("/api/ping"), "the adapter must recognise the liveness path.");
+  // The probe must be checked BEFORE the connection await; a route inside Express would still
+  // block for serverSelectionTimeoutMS because the handler connects first.
+  const probe = src.indexOf("if (path === LIVE_PATH)");
+  const connect = src.indexOf("await getConnection()");
+  assert.ok(probe > -1, "the adapter must short-circuit the liveness path.");
+  assert.ok(probe < connect, "the liveness check must run before the database await.");
+  // It must use raw Node response APIs: there is no Express at this layer.
+  assert.ok(src.includes("res.statusCode = 200"), "the probe must set res.statusCode directly.");
+  assert.equal(/res\.status\(200\)/.test(src), false, "res.status() does not exist on a raw Node response.");
+});
+
+test('the readiness check still reports the real database state', () => {
+  const app = fs.readFileSync(path.join(root, "backend/src/app.js"), "utf8");
+  // /api/ping is liveness only. /api/health must keep pinging Mongo so it reports 503 when the
+  // database is down; a hardcoded 200 there would make the Admin Dashboard lie.
+  assert.ok(app.includes("app.get('/api/ping'"), "the Express app must expose the liveness route too.");
+  const health = app.slice(app.indexOf("app.get('/api/health'"));
+  assert.ok(health.includes("admin().ping()"), "/api/health must still ping the database.");
+  assert.ok(health.includes("503"), "/api/health must still return 503 when Mongo is unavailable.");
+  assert.ok(app.indexOf("app.get('/api/ping'") < app.indexOf("app.get('/api/health'"), "the liveness route must be registered first.");
+});

@@ -49,7 +49,24 @@ function getApp() {
   return app;
 }
 
+// Liveness probe. Answered here, BEFORE any database work, because the handler below awaits the
+// Mongo connection first: a route defined inside Express would still block for up to
+// serverSelectionTimeoutMS. This path touches no database, so it responds immediately even when
+// Mongo is unreachable. /api/health remains the truthful readiness check that reports 503.
+const LIVE_PATH = '/api/ping';
+
+function respondOk(res) {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-store');
+  res.end(JSON.stringify({ status: 'ok' }));
+}
+
 module.exports = async (req, res) => {
+  // Raw Node response: no res.status()/res.json() helpers exist at this layer.
+  const path = (req && (req.url || '').split('?')[0].replace(/\/+$/, '')) || '';
+  if (path === LIVE_PATH) return respondOk(res);
+
   try {
     // Always await the connection (or its failure) before touching the app. Skipping this on a
     // cold start is what let requests reach Express before Mongo was connected.
