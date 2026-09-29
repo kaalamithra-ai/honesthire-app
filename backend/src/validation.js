@@ -6,7 +6,9 @@ const PIPELINE_STATUSES = ['pending', 'in_progress', 'completed', 'on_hold', 're
 // applicant scoped to their own record (see requireCandidate / requireOwnCandidate).
 const ROLES = ['admin', 'recruiter', 'interviewer', 'candidate'];
 class HttpError extends Error {
-  constructor(status, message) { super(message); this.status = status; }
+  // Optional stable `code` lets the client react to a specific failure (for example switching
+  // a duplicate-email signup to the sign-in view) without parsing the human-readable message.
+  constructor(status, message, code) { super(message); this.status = status; this.code = code; }
 }
 function object(value) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new HttpError(400, 'Expected a JSON object.');
@@ -112,6 +114,31 @@ function loginInput(body) {
   if (!email || email.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, 'Invalid email.');
   if (!body.password || body.password.length > 200) throw new HttpError(400, 'Invalid password.');
   return { email, password: body.password, adminKey: body.adminKey === undefined ? '' : body.adminKey };
+}
+// Self-service registration. Only the candidate role can be requested here: staff and admin
+// accounts are provisioned by an existing admin, never by the client (see admin-routes).
+// Validation mirrors loginInput so both flows reject the same malformed input identically.
+function registerInput(body) {
+  object(body);
+  const allowed = ['name', 'email', 'password', 'role'];
+  if (Object.keys(body).some(key => !allowed.includes(key))) throw new HttpError(400, 'Unknown signup field.');
+  if (typeof body.name !== 'string' || typeof body.email !== 'string' || typeof body.password !== 'string') {
+    throw new HttpError(400, 'name, email and password are required.');
+  }
+  const name = body.name.trim();
+  if (!name || name.length > 120) throw new HttpError(400, 'Enter your full name (at most 120 characters).');
+  const email = body.email.trim().toLowerCase();
+  if (!email || email.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, 'Enter a valid email address.');
+  const password = body.password;
+  // Minimum length is the only strength rule enforced; no complexity or composition requirement.
+  if (typeof password !== 'string' || password.length < 8) throw new HttpError(400, 'Password must be at least 8 characters.');
+  if (password.length > 200) throw new HttpError(400, 'Password must be at most 200 characters.');
+  // Ignore any privileged role a client sends; the only self-service role is candidate.
+  const role = body.role === undefined ? 'candidate' : body.role;
+  if (typeof role !== 'string' || !['candidate'].includes(role)) {
+    throw new HttpError(403, 'Staff accounts are created by an administrator. Sign up as a candidate.');
+  }
+  return { name, email, password, role };
 }
 function documentUploadInput(query, contentType) {
   const rawKind = query && typeof query.kind === 'string' ? query.kind.trim().toLowerCase() : '';
@@ -240,6 +267,7 @@ module.exports = {
   feedbackInput,
   checksInput,
   loginInput,
+  registerInput,
   documentUploadInput,
     candidateCreateInput,
   teamCreateInput,

@@ -273,26 +273,28 @@ test('navigation exposes role-scoped tabs and a candidate portal panel', async (
   assert.ok(elements.portal && elements['portal-doc-upload'], 'The portal panel must load against the documented DOM hooks.');
 });
 
-test('login screen offers a 3-way role selector that auto-fills demo accounts and redirects by role', () => {
+test('login screen offers a 3-way role selector that never pre-fills credentials and redirects by role', () => {
   for (const hook of ['id="auth-role-tabs"', 'data-role-tab="admin"', 'data-role-tab="employee"', 'data-role-tab="candidate"', 'id="auth-role-hint"', 'id="auth-role-admin"', 'id="auth-role-employee"', 'id="auth-role-candidate"']) {
     assert.ok(html.includes(hook), 'index.html must expose the role selector hook: ' + hook);
   }
-  for (const demo of ['admin@honesthire.app', 'recruiter@honesthire.app', 'hire1234', 'candidate@honesthire.app', 'candidate1234']) {
-    assert.ok(html.includes(demo), 'the login screen must surface the demo credential: ' + demo);
+  // Credentials are never shipped in the page. The form always starts empty, so the member
+  // types their own email and password instead of accepting an auto-filled demo identity.
+  for (const secret of ['admin@honesthire.app', 'recruiter@honesthire.app', 'hiring@honesthire.app', 'tara.lin@honesthire.app', 'sam.patel@honesthire.app', 'hire1234', 'candidate@honesthire.app', 'candidate1234', 'panel1234', 'SHAMANTH@KAALAMITHRA', 'admin1234']) {
+    assert.equal(html.includes(secret), false, 'No credential may be embedded in the client bundle: ' + secret);
   }
-  // Admin credentials are never auto-filled or shipped to the browser.
-  assert.equal(html.includes('admin1234'), false, 'The admin demo password must not be auto-filled.');
-  assert.equal(html.includes('SHAMANTH@KAALAMITHRA'), false, 'The admin password must never ship in the client bundle.');
+  // ROLE_TABS carries routing/roles only; selectRole must clear, never populate, the inputs.
+  assert.ok(/ROLE_TABS=\{admin:\{[^}]*tab:"admin"/.test(html), 'Admin must land on the admin dashboard.');
+  assert.ok(/ROLE_TABS=\{[\s\S]{0,400}?employee:\{[^}]*tab:"candidates"/.test(html), 'Employee must land on the candidates feed.');
+  assert.ok(/ROLE_TABS=\{[\s\S]{0,400}?candidate:\{[^}]*tab:"portal"/.test(html), 'Candidate must land on the candidate portal.');
+  assert.ok(!/employee:\{[^}]*password:/.test(html), 'No role may carry a password.');
+  assert.ok(!/candidate:\{[^}]*password:/.test(html), 'No role may carry a password.');
+  assert.ok(html.includes('if(e)e.value=""; if(p)p.value="";'), 'selectRole must clear the email and password fields.');
+  assert.equal(/function selectRole\(key,fill\)/.test(html), false, 'The unused fill parameter must be removed.');
   for (const impl of ['var ROLE_TABS=', 'function selectRole', 'function paintRoleTabs', 'function roleTabFor', '"data-role-tab"']) {
     assert.ok(html.includes(impl), 'the inline auth script must implement: ' + impl);
   }
-  // Each role maps to its dedicated landing view.
-  assert.ok(/admin:\{[^}]*tab:"admin"/.test(html), 'Admin must land on the admin dashboard.');
-  assert.ok(/employee:\{[^}]*tab:"candidates"/.test(html), 'Employee must land on the candidates feed.');
-  assert.ok(/candidate:\{[^}]*tab:"portal"/.test(html), 'Candidate must land on the candidate portal.');
   assert.ok(html.includes('setActiveTab(picked&&picked.tab'), 'Login must redirect through the app tab router.');
   assert.ok(html.includes('t.closest("[data-role-tab]")'), 'Role tabs must react to clicks.');
-  assert.ok(html.includes('selectRole("employee")'), 'The login form must default to a demo account.');
   assert.ok(html.includes('That is a "+signedRole+" account'), 'A role-tab/account mismatch must be refused.');
   // The modal keeps only the role tabs plus the email/password fields: the long
   // team-account list and its per-name fill buttons are gone (compact, no scrolling).
@@ -300,6 +302,31 @@ test('login screen offers a 3-way role selector that auto-fills demo accounts an
   assert.equal(html.includes('fillTeam'), false, 'fillTeam() must be gone with the list.');
   assert.equal(html.includes('auth-use-account'), false, 'The per-name fill buttons must be gone.');
   assert.equal(html.includes('/api/auth/team'), false, 'The modal must no longer fetch the team list.');
+});
+test('the login modal offers Log in and Sign up, and signup switches to the sign-in form on a duplicate', () => {
+  // Both entry points exist: the modal toggle and the logged-out gate call to action.
+  for (const hook of ['id="auth-mode"', 'id="auth-mode-login"', 'id="auth-mode-signup"', 'data-auth-mode="login"', 'data-auth-mode="signup"', 'id="auth-mode-hint"', 'id="auth-modal-title"', 'id="auth-name-field"', 'id="auth-name"', 'id="auth-confirm-field"', 'id="auth-confirm"']) {
+    assert.ok(html.includes(hook), 'index.html must expose the signup hook: ' + hook);
+  }
+  // The name and confirmation fields ship hidden and are revealed only in signup mode.
+  assert.ok(html.includes('id="auth-name-field" class="hidden'), 'the name field must ship hidden.');
+  assert.ok(html.includes('id="auth-confirm-field" class="hidden'), 'the confirm field must ship hidden.');
+  for (const impl of ['var authMode="login"', 'function paintAuthMode', 'function setAuthMode', 'function clearAuthFields', 'function showAuthError']) {
+    assert.ok(html.includes(impl), 'the inline auth script must implement: ' + impl);
+  }
+  // The mode buttons are wired for clicks from anywhere on the page.
+  assert.ok(html.includes('t.closest("[data-auth-mode]")'), 'mode buttons must react to clicks.');
+  // Signup posts to the registration endpoint with the candidate role and no admin key.
+  assert.ok(html.includes('/api/auth/register'), 'signup must call POST /api/auth/register.');
+  assert.ok(html.includes('role:"candidate"'), 'signup must request the candidate role.');
+  // A duplicate email switches to the sign-in form and preserves the typed address.
+  assert.ok(html.includes('code==="email_taken"'), 'the client must react to the email_taken code.');
+  assert.ok(/if\(code==="email_taken"[^\n]*setAuthMode\("login"\)/.test(html), 'a duplicate must switch back to the sign-in form.');
+  assert.ok(html.includes('keep.value=email'), 'a duplicate must keep the typed email.');
+  // The api() helper must surface the machine-readable error code, not only the message.
+  assert.ok(html.includes('apiErr.code=d&&d.code'), 'api() must expose the error code to callers.');
+  // The button label follows the active mode.
+  assert.ok(html.includes('signup?"Create account":"Log in"'), 'the submit label must follow the active mode.');
 });
 test('admin navigation adds an audit log tab and role-scoped nav labels', () => {
   for (const hook of ['id="nav-audit"', 'data-tab="audit"', 'id="panel-audit"', 'data-tab-panel="audit"', 'id="audit-list"', 'id="audit-summary"', 'id="audit-filter"', 'id="audit-refresh"', 'Audit Logs']) {
@@ -325,7 +352,7 @@ test('admin sign-in is gated by a server-side security passcode', () => {
     assert.ok(html.includes(hook), 'the login modal must expose the admin security key field: ' + hook);
   }
   assert.ok(html.includes('id="auth-admin-key-field" class="hidden'), 'the admin key field must ship hidden until the Admin tab is selected.');
-  assert.ok(html.includes('admin:{label:"Admin",email:"admin@honesthire.app",password:"",secret:true'), 'The admin role tab must not carry an auto-filled password.');
+  assert.ok(html.includes('admin:{label:"Admin",secret:true'), 'The admin role tab must carry no email and no password.');
   assert.ok(html.includes('Invalid Admin Credentials or Passcode'), 'The exact admin error message must be surfaced.');
   assert.ok(html.includes('Enter the admin security key.'), 'An empty passcode must prompt without calling the API.');
   assert.ok(html.includes('payload.adminKey=adminKey'), 'submit() must send the passcode for the admin tab.');

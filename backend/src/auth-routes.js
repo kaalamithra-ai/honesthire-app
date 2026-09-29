@@ -2,8 +2,8 @@
 const { Router } = require('express');
 const { requireDatabase } = require('./db');
 const User = require('./models/User');
-const { HttpError, loginInput } = require('./validation');
-const { verifyPassword, publicUser, createSession, endSession, requireUser, verifyAdminSecret } = require('./auth');
+const { HttpError, loginInput, registerInput } = require('./validation');
+const { verifyPassword, publicUser, createSession, endSession, requireUser, verifyAdminSecret, hashPassword } = require('./auth');
 const { writeAudit } = require('./audit');
 const wrap = fn => (req, res, next) => Promise.resolve(fn(req, res)).catch(next);
 
@@ -33,7 +33,34 @@ const { token, expiresAt } = await createSession(user);
     await writeAudit(req, 'login', { kind: 'user', id: String(user._id), label: user.email }, loginDetails, user);
     res.json({ token, expiresAt, user: publicUser(user) });
   }));
-    router.post('/auth/logout', requireUser, wrap(async (req, res) => {
+    // Self-service signup for candidate accounts. A duplicate email is reported as 409 with a
+  // stable error code so the client can switch to the sign-in view instead of guessing, while
+  // still returning the same generic message to avoid confirming which addresses are registered.
+  router.post('/auth/register', wrap(async (req, res) => {
+    const { name, email, password, role } = registerInput(req.body);
+    const existing = await User.findOne({ email }).lean();
+    if (existing) {
+      await writeAudit(req, 'signup_duplicate', { kind: 'user', label: email }, { reason: 'email_taken' });
+      throw new HttpError(409, 'An account with this email already exists. Sign in instead.', 'email_taken');
+    }
+    // Unique index on email is the real guard against a concurrent duplicate insert.
+    const { passwordSalt, passwordHash } = hashPassword(password);
+    let user;
+    try {
+      user = await User.create({ name, email, role, passwordSalt, passwordHash, active: true });
+    } catch (error) {
+      if (error && error.code === 11000) {
+        await writeAudit(req, 'signup_duplicate', { kind: 'user', label: email }, { reason: 'email_taken' });
+        throw new HttpError(409, 'An account with this email already exists. Sign in instead.', 'email_taken');
+      }
+      throw error;
+    }
+    await writeAudit(req, 'signup', { kind: 'user', id: String(user._id), label: email }, { role }, user);
+    // Sign the new account straight in so the member never has to retype their password.
+    const { token, expiresAt } = await createSession(user);
+    res.status(201).json({ token, expiresAt, user: publicUser(user) });
+  }));
+  router.post('/auth/logout', requireUser, wrap(async (req, res) => {
     await writeAudit(req, 'logout', { kind: 'user', id: String(req.user.id), label: req.user.email }, { role: req.user.role }, req.user);
     await endSession(req.sessionToken);
     res.status(204).end();

@@ -45,7 +45,9 @@ function createApp(db = require('./db').mongoose) {
     if (error.type === 'entity.parse.failed') return res.status(400).json({ error: 'Invalid JSON.' });
     if (error.type === 'entity.too.large') return res.status(413).json({ error: 'Request body too large.' });
     if (!error.status) console.error(error);
-    res.status(error.status || 500).json({ error: error.status ? error.message : 'Internal server error.' });
+    const body = { error: error.status ? error.message : 'Internal server error.' };
+    if (error.status && error.code) body.code = error.code;
+    res.status(error.status || 500).json(body);
   });
   return app;
 }

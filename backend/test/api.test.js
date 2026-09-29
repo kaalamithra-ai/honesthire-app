@@ -131,6 +131,52 @@ test('invalid IDs, missing pipelines and unknown routes return JSON errors', asy
     assert.equal(typeof (await response.json()).error, 'string');
   }
 });
+test('self-service signup creates a candidate, refuses duplicates and cannot escalate roles', async () => {
+  const attempt = (body) => fetch(base + '/api/auth/register', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+  });
+  const email = 'new.applicant@example.com';
+  // A brand-new address registers and is signed in immediately (no second password prompt).
+  const created = await attempt({ name: 'New Applicant', email, password: 'strongpass123' });
+  assert.equal(created.status, 201);
+  const body = await created.json();
+  assert.equal(body.user.email, email);
+  assert.equal(body.user.role, 'candidate');
+  assert.ok(body.token, 'signup must return a session token');
+  assert.equal(body.user.passwordHash, undefined, 'the password hash must never be returned');
+  assert.equal(body.user.passwordSalt, undefined, 'the password salt must never be returned');
+  // The same address again is rejected with a stable code the client can switch on.
+  const duplicate = await attempt({ name: 'Someone Else', email, password: 'strongpass123' });
+  assert.equal(duplicate.status, 409);
+  assert.equal((await duplicate.json()).code, 'email_taken');
+  // An address that already belongs to a seeded team account is refused too.
+  const taken = await attempt({ name: 'Impostor', email: team[0].email, password: 'strongpass123' });
+  assert.equal(taken.status, 409);
+  assert.equal((await taken.json()).code, 'email_taken');
+  // The new account can sign in with the password it registered with.
+  const signedIn = await fetch(base + '/api/auth/login', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password: 'strongpass123' })
+  });
+  assert.equal(signedIn.status, 200);
+  // Staff and admin roles can never be self-assigned through signup.
+  for (const role of ['admin', 'recruiter', 'interviewer']) {
+    const escalation = await attempt({ name: 'Sneaky', email: 'sneaky@example.com', password: 'strongpass123', role });
+    assert.equal(escalation.status, 403, 'signup must refuse the ' + role + ' role');
+  }
+  // Input validation mirrors the login rules.
+  assert.equal((await attempt({ name: 'A', email: 'not-an-email', password: 'strongpass123' })).status, 400);
+  assert.equal((await attempt({ name: 'A', email: 'weak@example.com', password: 'short' })).status, 400);
+  assert.equal((await attempt({ email: 'noname@example.com', password: 'strongpass123' })).status, 400);
+  assert.equal((await attempt({ name: 'A', email: 'a@example.com', password: 'strongpass123', extra: 1 })).status, 400);
+  // Self-registered accounts are real records, so remove the ones this test created: later tests
+  // assert on the exact user count and cleanup only targets the seeded roster.
+  const User = require('../src/models/User');
+  const Session = require('../src/models/Session');
+  await Session.deleteMany({ email: { $in: [email, 'sneaky@example.com'] } });
+  await User.deleteMany({ email: { $in: [email, 'sneaky@example.com'] } });
+  assert.equal(await User.countDocuments({ email }), 0, 'the test must not leave signup records behind.');
+});
 test('models reject invalid ranges and pipeline references are unique', async () => {
   const { completion, ...sample } = samples[0];
   await assert.rejects(new Candidate({ ...sample, trustScore: 101 }).validate());

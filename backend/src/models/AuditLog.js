@@ -9,6 +9,7 @@ const ROLE_ENUM = {
 
 const AUDIT_ACTIONS = [
   'login', 'login_failed', 'logout',
+  'signup', 'signup_duplicate',
   'candidate_created', 'feedback_added', 'checks_updated', 'document_uploaded', 'document_deleted',
   'pipeline_changed', 'export_generated',
   'team_created', 'team_role_changed', 'team_deactivated', 'team_reactivated', 'sessions_revoked',
