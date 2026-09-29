@@ -9,7 +9,7 @@
     "db:seed": "node seed.js",
     "db:clean": "node cleanup.js",
     "setup": "npm run db:seed",
-    "test": "node --test --test-concurrency=1 test/api.test.js test/frontend.test.js test/click-signup.test.js"
+    "test": "node --test --test-concurrency=1 test/api.test.js test/frontend.test.js test/click-signup.test.js test/api-base.test.js"
   },
   "engines": { "node": ">=20.19" },
   "dependencies": {

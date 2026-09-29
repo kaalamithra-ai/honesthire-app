@@ -5,7 +5,11 @@
  (set by the inline tab controller in index.html) and the hh-token in localStorage. */
 (function () {
   'use strict';
-  var base = window.HONEST_HIRE_API_BASE || 'http://localhost:5000';
+  // Shared resolution: see the comment in backend-client.js. A hosted page uses its own origin;
+// only local development falls back to http://localhost:5000.
+var base = window.HONEST_HIRE_API_BASE_RESOLVED || window.HONEST_HIRE_API_BASE ||
+  (window.location && window.location.protocol.indexOf('http') === 0 &&
+   !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname) ? '' : 'http://localhost:5000');
   function getText(id) { var el = document.getElementById(id); return el ? el.textContent : ''; }
   function setText(id, text) {
     var el = document.getElementById(id);

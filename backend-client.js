@@ -13,7 +13,12 @@
 (function () {
   'use strict';
   const G = id => document.getElementById(id);
-  const base = window.HONEST_HIRE_API_BASE || 'http://localhost:5000';
+  // The page (index.html) resolves the API base once and exposes it on window. Fall back to the
+// same rules here so these scripts also work when loaded on their own: an explicit override wins,
+// otherwise a hosted page talks to its own origin and only local development uses localhost:5000.
+const base = window.HONEST_HIRE_API_BASE_RESOLVED || window.HONEST_HIRE_API_BASE ||
+  (window.location && window.location.protocol.indexOf('http') === 0 &&
+   !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname) ? '' : 'http://localhost:5000');
   const stages = ['Applied / Sourced', 'Initial Screening', 'Technical Assessment', 'Background & Reference Checks', 'Offer & Onboarding'];
   const docKinds = { resume: 'Resume / CV', id_verification: 'ID verification', other: 'Other document' };
   let candidates = [], selected = '', request = 0, feedRequest = 0, total = 0, searchTimer, addOpen = false;

@@ -628,7 +628,31 @@ items.forEach(function(item){if(!used[item._id])merged.push(synthEntry(item));})
 ENTRIES=merged;
 var note=$i("iv-filter-note"); if(note)note.textContent=items.length?(items.length+" live MongoDB record(s) linked"):"demo list — start the backend for live records";
 }
-var API_BASE=(window.HONEST_HIRE_API_BASE||"http://localhost:5000").replace(/\/+$/,"");
+// Resolve the API base URL once, in one place, so the page and the three client scripts never
+// disagree. Priority:
+//   1. window.HONEST_HIRE_API_BASE  - explicit override (set before this script loads)
+//   2. same origin                  - when the page is served over http(s), which is what a real
+//                                     deployment wants: the API lives next to the UI, so "/api/..."
+//                                     resolves against the current host instead of localhost
+//   3. http://localhost:5000        - only for local file:// and localhost development
+// The old behaviour always chose localhost, so a hosted copy of this page sent every request to
+// the visitor's own machine and failed with "Failed to fetch" no matter how current the code was.
+function resolveApiBase(){
+  var explicit=window.HONEST_HIRE_API_BASE;
+  if(explicit) return String(explicit).replace(/\/+$/,"");
+  var loc=window.location||{};
+  var host=String(loc.hostname||"");
+  var isLocal=!host||host==="localhost"||host==="127.0.0.1"||host==="[::1]";
+  if(!isLocal&&/^https?:$/.test(String(loc.protocol||""))) return ""; // same origin
+  return "http://localhost:5000";
+}
+if(typeof window!=="undefined"){ if(!window.HONEST_HIRE_API_BASE_RESOLVED) window.HONEST_HIRE_API_BASE_RESOLVED=resolveApiBase(); }
+// A single actionable message beats a bare "Failed to fetch": it names the URL that was tried.
+if(typeof window!=="undefined"&&!window.__hhApiExplained){
+  window.__hhApiExplained=true;
+  window.__hhApiBase=function(){ return window.HONEST_HIRE_API_BASE_RESOLVED; };
+}
+var API_BASE=(window.HONEST_HIRE_API_BASE_RESOLVED||resolveApiBase()).replace(/\/+$/,"");
 function fbStatus(msg,ok){var s=$i("iv-fb-status");if(!s)return;if(!msg){s.classList.add("hidden");s.textContent="";return;}s.textContent=msg;s.classList.remove("hidden");s.setAttribute("style",ok?"color:#005236":"color:#ba1a1a");}
 async function resolveMongoId(c){try{var r=await fetch(API_BASE+"/api/candidates?q="+encodeURIComponent(c.name),{cache:"no-store"});var d=await r.json();if(!r.ok||!d.items)return null;for(var k=0;k<d.items.length;k++){if(d.items[k].name===c.name)return d.items[k]._id;}return d.items.length?d.items[0]._id:null;}catch(e){return "__offline__";}}
 async function submitFeedback(btn){var c=cand(sel);var inp=$i("iv-feedback-text");var v=(inp.value||"").trim();if(!v){fbStatus("Write feedback notes before submitting.",false);inp.focus();return;}btn.textContent="Saving…";btn.setAttribute("disabled","");fbStatus("Saving feedback for "+c.name+"…",true);var id=await resolveMongoId(c);if(id==="__offline__"){fbStatus("Backend unavailable — start MongoDB + npm start, then retry.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}if(!id){fbStatus("No linked candidate record for "+c.name+" — seed the backend.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}try{var r=await fetch(API_BASE+"/api/candidates/"+id+"/feedback",{method:"PATCH",headers:feedbackHeaders(),body:JSON.stringify({text:v})});var d=null;try{d=await r.json();}catch(e){}if(r.status===401){fbStatus("Log in with a team account to submit feedback under your name.",false);var hh=window.HonestHire||{};if(hh.openLogin)hh.openLogin();btn.textContent="Submit feedback";btn.removeAttribute("disabled");return;}if(!r.ok)throw new Error((d&&d.error)||("Request failed ("+r.status+")."));var n=(d.feedback||[]).length;btn.textContent="Feedback submitted";fbStatus("Feedback saved for "+c.name+" · "+n+" total.",true);inp.value="";setTimeout(function(){$i("iv-feedback-modal").classList.add("hidden");btn.textContent="Submit feedback";btn.removeAttribute("disabled");fbStatus("");},900);}catch(e){fbStatus(e.message||"Could not save feedback.",false);btn.textContent="Submit feedback";btn.removeAttribute("disabled");}}
@@ -698,7 +722,7 @@ attributable to the signed-in member. While logged out the gate hides all hiring
 (function(){
 "use strict";
 function G(id){return document.getElementById(id);}
-var TOKEN_KEY="hh-token", USER_KEY="hh-user", API_BASE=(window.HONEST_HIRE_API_BASE||"http://localhost:5000").replace(/\/+$/,"");
+var TOKEN_KEY="hh-token", USER_KEY="hh-user", API_BASE=(window.HONEST_HIRE_API_BASE_RESOLVED||resolveApiBase()).replace(/\/+$/,"");
 var logged=false, me=null, busy=false;
 function store(key,value){try{if(value===null){localStorage.removeItem(key);}else{localStorage.setItem(key,value);}}catch(e){}}
 function read(key){try{return localStorage.getItem(key);}catch(e){return null;}}
@@ -745,6 +769,17 @@ var d=null; try{d=await r.json();}catch(e){}
 if(!r.ok){var apiErr=new Error((d&&d.error)||("Request failed ("+r.status+").")); apiErr.status=r.status; apiErr.code=d&&d.code; throw apiErr;}
 return d;
 }
+// Turn a network-level failure into something actionable. The browser's bare "Failed to fetch"
+// hides the cause: the request never reached a server. Name the exact URL so it is obvious
+// whether the API is unreachable, blocked by CORS, or not deployed on this host at all.
+window.__hhFriendlyError=function(err,pathName){
+  var base=window.HONEST_HIRE_API_BASE_RESOLVED||resolveApiBase();
+  var shown=(base||"")+String(pathName||"");
+  if(err&&err.status) return err; // a real HTTP response already carries a message
+  var isLocal=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(String((window.location||{}).hostname||""));
+  if(isLocal) return new Error("Could not reach the backend at "+shown+". Start MongoDB, then run: cd backend && npm start");
+  return new Error("No API is deployed at "+shown+". This page needs its backend on the same host (or set HONEST_HIRE_API_BASE).");
+};
 // Role selector: each tab pins the session to that role, so signing in always lands on the
 // matching view (Admin/Employer/Candidate). The tabs carry no credentials: the form starts
 // empty and the member types their own email and password, so nothing is auto-filled or
@@ -817,7 +852,7 @@ if(authMode==="signup"){
     remember(created); clearAuthFields(); authMode="login"; paintAuthMode(); closeLogin(); render();
     toast("Account created. Signed in as "+(created&&created.user?created.user.name:"candidate")+".");
   }catch(err){
-    var msg=(err&&err.message)||"Could not create the account.";
+    var msg=window.__hhFriendlyError?window.__hhFriendlyError(err,"/api/auth/register").message:((err&&err.message)||"Could not create the account.");
     var code=err&&err.code;
     // The address is already registered: say so plainly, switch to the sign-in form and keep the
     // email so the member does not have to retype it.
@@ -838,7 +873,8 @@ if(p)p.value="";
 // Feedback, uploads and pipeline writes are attributed to this member from now on.
 try{if(window.HonestHire&&window.HonestHire.reloadFeed)window.HonestHire.reloadFeed();}catch(ignored){}
 }catch(error){
-if(er){er.classList.remove("hidden"); er.textContent=(selectedRole==="admin"&&error.message==="Invalid email or password.")?"Invalid Admin Credentials or Passcode":(error.message||"Could not log in.");} if(selectedRole==="admin"&&adminKeyInput){adminKeyInput.value=""; adminKeyInput.focus();}
+var friendly=window.__hhFriendlyError?window.__hhFriendlyError(error,"/api/auth/login"):error;
+if(er){er.classList.remove("hidden"); er.textContent=(selectedRole==="admin"&&error.message==="Invalid email or password.")?"Invalid Admin Credentials or Passcode":(friendly.message||"Could not log in.");} if(selectedRole==="admin"&&adminKeyInput){adminKeyInput.value=""; adminKeyInput.focus();}
 }finally{busy=false; if(btn){btn.textContent="Log in"; btn.removeAttribute("disabled");}}
 }
 async function logout(){

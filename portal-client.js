@@ -5,7 +5,11 @@
 (function () {
   'use strict';
   var G = function (id) { return document.getElementById(id); };
-  var base = (window.HONEST_HIRE_API_BASE || 'http://localhost:5000').replace(/\/+$/, '');
+  // Shared resolution: see the comment in backend-client.js. A hosted page uses its own origin;
+// only local development falls back to http://localhost:5000.
+var base = (window.HONEST_HIRE_API_BASE_RESOLVED || window.HONEST_HIRE_API_BASE ||
+  (window.location && window.location.protocol.indexOf('http') === 0 &&
+   !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname) ? '' : 'http://localhost:5000')).replace(/\/+$/, '');
   var stages = ['Applied / Sourced', 'Initial Screening', 'Technical Assessment', 'Background & Reference Checks', 'Offer & Onboarding'];
   function stored(key) {
     try { return window.localStorage ? window.localStorage.getItem(key) : null; } catch (error) { return null; }
